@@ -1,0 +1,460 @@
+{
+  "LOGIN": {
+    "PAGE_TITLE": "Login - Akar Service",
+    "HEADER": "Sign In",
+    "WELCOME_MSG": "Welcome back to Akar Service",
+    "EMAIL_LABEL": "Email Address",
+    "NAME_LABEL": "UserName",
+    "EMAIL_PLACEHOLDER": "example@mail.com",
+    "NAME_PLACEHOLDER": "userName",
+    "PASSWORD_LABEL": "Password",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "PASSWORD_PLACEHOLDER": "••••••••",
+    "SUBMIT_BTN": "Sign In",
+    "PASSWORD_WEAK": "Weak password! Make sure it includes uppercase, lowercase, numbers, and symbols.",
+    "PASSWORD_REQUIRED": "!Password is required",
+    "EMAIL_REQUIRED": "!Email address is required",
+    "EMAIL_INVALID": "Invalid email format! (e.g., example@mail.com)"
+  },
+
+"HOME": {
+  "WELCOME": "Welcome, User",
+  "SUB_WELCOME": "How can we help you today?",
+  "SEARCH_PLACEHOLDER": "Search for maintenance services...",
+  "BANNER_TITLE": "Annual Maintenance Packages",
+  "BANNER_DESC": "Enjoy peace of mind with our comprehensive year-round services with discounts up to 30%.",
+  "BANNER_BTN": "Subscribe Now",
+  "SERVICES_TITLE": "Our Services",
+  "VIEW_ALL": "View All",
+  "CAT_ELECTRICITY": "Electricity",
+  "CAT_PLUMBING": "Plumbing",
+  "CAT_AC": "Air Conditioning",
+  "CAT_CARPENTRY": "Carpentry",
+  "CAT_CLEANING": "Cleaning",
+  "CAT_PEST": "Pest Control",
+  "RECOMMENDED_TITLE": "Recommended for you",
+  "BADGE_MOST_WANTED": "Most Wanted",
+  "BADGE_FEATURED": "Featured",
+  "SERVICE_AC_TITLE": "Split AC Cleaning",
+  "SERVICE_AC_PRICE": "350 EG",
+  "SERVICE_AC_DESC": "Comprehensive cleaning for indoor and outdoor units to ensure...",
+  "SERVICE_CLEAN_TITLE": "Deep House Cleaning",
+  "SERVICE_CLEAN_PRICE": "650 EG",
+  "SERVICE_CLEAN_DESC": "Professional service including all house rooms with sanitization...",
+  "REVIEWS": "reviews",
+  "NAV_HOME": "Home",
+  "NAV_ORDERS": "My Orders",
+  "NAV_PROFILE": "Profile",
+  "NAV_PACKAGES": "Subscriptions"
+},
+
+
+
+  "Electricity": "Electricity",
+  "Plumbing": "Plumbing",
+  "Air Conditioning": "Air Conditioning",
+  "Carpentry": "Carpentry",
+  "Cleaning": "Cleaning",
+  "Pest Control": "Pest Control",
+
+
+
+
+
+
+
+"PROFILE": {
+  "BADGE_PREMIUM": "Premium Member",
+  "PERSONAL_INFO": "Personal Information",
+  "MY_ADDRESSES": "My Addresses",
+  "PAYMENT_METHODS": "Payment Methods",
+  "ORDER_HISTORY": "Order History",
+  "NOTIFICATIONS": "Notifications",
+  "LANGUAGE": "Language",
+  "CURRENT_LANG": "English",
+  "HELP_CENTER": "Help Center",
+  "LOGOUT": "Logout",
+  "SHARE_APP": "Share App",
+  "SHARE_DESC": "And get 20% off your next order",
+  "SHARE_BTN": "Share Now"
+},
+
+"TRACKING": {
+  "TITLE": "Track Order",
+  "ORDER_NUM": "#12345",
+  "SERVICE_TYPE": "Central AC Maintenance",
+  "STATUS_ACTIVE": "Active Now",
+  "ALERT_ON_WAY": "The worker is on his way to you now",
+  "WORKER_TITLE": "Technical Expert",
+  "REVIEWS": "reviews",
+  "SUCCESS_MESSAGE": "Your order has been successfully received, and the technician will contact you shortly.",
+  "STAGES_TITLE": "Execution Stages",
+  "STEP_RECEIVED": "Order Received",
+  "STEP_RECEIVED_TIME": "10:30 AM",
+  "STEP_ON_WAY": "Worker on the Way",
+  "STEP_ON_WAY_ETA": "Estimated arrival within 15 minutes",
+  "STEP_ARRIVED": "Arrived at Location",
+  "STEP_COMPLETED": "Service Completed",
+  "NAV_HOME": "Home",
+  "NAV_ORDERS": "My Orders",
+  "NAV_PROFILE": "Profile"
+},
+"TASK_DETAILS": {
+  "TITLE": "Task Details",
+  "STATUS_IN_PROGRESS": "In Progress",
+  "STEP_ACCEPTED": "Accepted",
+  "STEP_ARRIVED": "Arrived",
+  "STEP_START": "Start Work",
+  "STEP_DONE": "Completed",
+  "STEP_END": "Back To Other Tasks",
+  "CLIENT_LABEL": "Customer",
+  "CLIENT_NAME": "Ahmed Al-Qahtani",
+  "LOCATION_CITY": "Riyadh, Saudi Arabia",
+  "SERVICE_TITLE": "AC Maintenance",
+  "SERVICE_BADGE": "Routine",
+  "COST_LABEL": "Expected Cost",
+  "COST_VALUE": "350 SAR",
+  "TIME_LABEL": "Appointment Time",
+  "TIME_VALUE": "Today, 04:30 PM",
+  "BTN_ARRIVED": "Arrived",
+  "BTN_POSTPONE": "Postpone Task",
+  "NAV_TASKS": "Tasks",
+  "NAV_EARNINGS": "Earnings",
+  "NAV_PROFILE": "Profile"
+},
+
+"BOOKING_DETAILS": {
+  "HEADER_TITLE": "Booking Details",
+  "SERVICE_NAME": "Electricity",
+  "SERVICE_DESC": "Maintenance and repair of electrical connections",
+  "ADDRESS_TITLE": "Visit Address",
+  "LABEL_COMPOUND": "Compound / Area Name",
+  "LABEL_NOTE": "Add Your Note",
+  "PLACEHOLDER_COMPOUND": "e.g., Madinaty, Fifth Settlement",
+  "PLACEHOLDER_NOTE": "Summary of home maintenance issues (plumbing, electrical, etc.)",
+  "LABEL_BUILDING": "Building No.",
+  "LABEL_UNIT": "Unit / Apartment No.",
+  "DATE_TITLE": "Visit Date & Time",
+  "LOC_TITLE": "Choose From Your LOcations",
+  "DAY_SUN": "Sunday",
+  "DAY_MON": "Monday",
+  "DAY_TUE": "Tuesday",
+  "DAY_WED": "Wednesday",
+  "DAY_THU": "Thursday",
+  "DAY_FRI": "Friday",
+  "DAY_SAT": "Saturday",
+  "TIME_MORNING": "Morning (9 - 12)",
+  "TIME_NOON": "Noon (12 - 3)",
+  "TIME_EVENING": "Evening (4 - 7)",
+  "PAYMENT_TITLE": "Payment Method",
+  "PAYMENT_CASH": "Cash (On Visit)",
+  "PAYMENT_CREDIT": "Credit Card (Visa/Mastercard)",
+  "FEE_INSPECTION": "Inspection Fee",
+  "TOTAL_ESTIMATED": "Estimated Total",
+  "PRICE_CURRENCY": "150 EGP",
+  "PRICE_NOTE": "The final cost will be determined after inspection and adding the price of spare parts, if any.",
+  "BTN_CONFIRM": "Confirm Order",
+  "NAV_HOME": "Home",
+  "NAV_ORDERS": "My Orders",
+  "NAV_PROFILE": "Profile",
+  "LABEL_PHONE": "Phone Number",
+  "PLACEHOLDER_PHONE": "Enter phone number"
+},
+
+"AVAILABLE_TASKS": {
+    "TITLE": "Available Tasks",
+    "COUNT_SUFFIX": "task(s) available",
+    "SERVICE_NAME": "Water Leak Repair",
+    "LOCATION": "Fifth Settlement",
+    "PRICE_LABEL": "Estimated 250EG",
+    "BTN_ACCEPT": "Start",
+    "BTN_DETAILS": "Details"
+  },
+
+"EARNINGS": {
+    "TITLE": "Earnings & Dues",
+    "SUBTITLE": "Track your daily and monthly financial performance",
+    "WITHDRAW_BTN": "Withdraw Balance",
+    "DAILY": "Today's Earnings",
+    "WEEKLY": "Weekly Earnings",
+    "MONTHLY": "Monthly Earnings",
+    "CURRENCY": "SAR"
+  },
+
+
+
+
+
+  "PROFILE_PAGE": {
+    "STATUS": "Premium Member",
+    "PERSONAL_INFO": "Personal Information",
+    "MY_ADDRESSES": "My Addresses",
+    "LOGOUT": "Logout"
+  },
+
+
+
+
+
+  "MAINTENANCE_PLANS": {
+    "PAGE_TITLE": "Annual Maintenance Plans - Akar Service",
+    "HEADER_TITLE": "Profile",
+    "BRAND": "AKAR",
+    "GUARANTEE_BADGE": "Certified Service Guarantee",
+    "HERO_TITLE": "Invest in Your Peace of Mind",
+    "HERO_DESC": "Enjoy comprehensive maintenance all year round with discounts up to 30%.",
+    "TOGGLE_MONTHLY": "MONTHLY",
+    "TOGGLE_YEARLY": "YEARLY",
+    "DISCOUNT_YEARLY": "-30%",
+
+    "PLAN_BASIC_TITLE": "Basic Plan",
+    "PLAN_BASIC_DESC": "For small houses and apartments",
+    "PRICE_BASIC": "500",
+    "PRICE_MONTHLY_BASIC": "99",
+    "PRICE_YEARLY_BASIC": "350",
+    "CURRENCY": "EGP / mo",
+    "CURRENCY_YEARLY": "EGP / yr",
+    "FEATURE_BASIC_1": "2 free visits during the month",
+    "FEATURE_BASIC_2": "Free maintenance for 1 AC unit",
+    "FEATURE_BASIC_3": "20% discount on any visit after free visits",
+    "BTN_SELECT": "SELECT PLAN",
+
+    "PLAN_STANDARD_TITLE": "Standard Plan",
+    "PLAN_STANDARD_DESC": "Best for families",
+    "POPULAR_BADGE": "MOST POPULAR",
+    "PRICE_MONTHLY_STANDARD": "199",
+    "PRICE_YEARLY_STANDARD": "159",
+    "FEATURE_STANDARD_1": "4 preventive visits per year",
+    "FEATURE_STANDARD_2": "AC cleaning (2 units)",
+    "FEATURE_STANDARD_3": "Priority technical support",
+    "BTN_SUBSCRIBE": "SUBSCRIBE NOW",
+
+    "PLAN_PREMIUM_TITLE": "Premium Plan",
+    "PLAN_PREMIUM_DESC": "Unlimited comprehensive coverage",
+    "PRICE_PREMIUM": "1000",
+    "PRICE_MONTHLY_PREMIUM": "299",
+    "PRICE_YEARLY_PREMIUM": "700",
+    "FEATURE_PREMIUM_1": "4 free visits during the month",
+    "FEATURE_PREMIUM_2": "Free maintenance for 2 AC units",
+    "FEATURE_PREMIUM_3": "20% discount on any visit after free visits",
+
+    "TRUST_FAST_TITLE": "Fast Execution",
+    "TRUST_FAST_DESC": "4 hour response time for urgent requests",
+    "TRUST_SAFE_TITLE": "Safe & Secure",
+    "TRUST_SAFE_DESC": "Certified and insured technicians for your home",
+
+    "NAV_HOME": "Home",
+    "NAV_ORDERS": "My Orders",
+    "NAV_PROFILE": "Profile",
+    "NAV_PACKAGES": "Featured Packages"
+  },
+
+
+  "ADDRESSES": {
+    "PAGE_TITLE": "Akar Service - My Addresses",
+    "HEADER_TITLE": "My Addresses",
+    "SECTION_SAVED": "Saved Addresses",
+
+    "LABEL_HOME": "Home",
+    "ADDR_HOME": "Madinaty, 5th Settlement, Building 14, Apt 22",
+    "LABEL_WORK": "Work",
+    "ADDR_WORK": "Smart Village, Cairo-Alex Desert Rd, Building B4",
+
+    "SECTION_ADD_NEW": "Visit Address",
+    "FIELD_AREA": "Compound / Area Name",
+    "PLACEHOLDER_AREA": "e.g., Madinaty, 5th Settlement",
+    "FIELD_BUILDING": "Building No.",
+    "FIELD_UNIT": "Unit / Apt No.",
+    "FIELD_LANDMARK": "Landmark (Optional)",
+    "PLACEHOLDER_LANDMARK": "e.g., Near the main mosque",
+
+    "BTN_MAP": "Set Location on Map",
+    "BTN_SAVE": "Save Address",
+
+    "NAV_HOME": "Home",
+    "NAV_ORDERS": "My Orders",
+    "NAV_PROFILE": "Account"
+  },
+
+
+
+
+  "PAYMENT": {
+    "PAGE_TITLE": "Akar Service - Checkout",
+    "SERVICE_TITLE": "Water Leak Repair",
+    "SERVICE_DATE_LABEL": "Service Date:",
+    "SERVICE_DATE": "October 24, 2023",
+    "TOTAL_LABEL": "Total",
+    "CURRENCY_EGP": "EGP",
+
+    "PAYMENT_METHOD_TITLE": "Payment Method",
+    "METHOD_CARD": "Credit / Debit Card",
+    "METHOD_WALLET": "E-Wallet",
+
+    "CARD_NUMBER_LABEL": "Card Number",
+    "CARD_NUMBER_PLACEHOLDER": "0000 0000 0000 0000",
+    "CARD_HOLDER_LABEL": "Cardholder Name",
+    "CARD_HOLDER_PLACEHOLDER": "Name as printed on card",
+    "EXPIRY_LABEL": "Expiry Date",
+    "EXPIRY_PLACEHOLDER": "MM/YY",
+    "CVV_LABEL": "Security Code (CVV)",
+    "CVV_PLACEHOLDER": "123",
+
+    "BTN_SUBMIT": "Complete Payment",
+    "SECURE_PAYMENT_TEXT": "100% Secure & Encrypted Payment"
+  },
+
+
+
+
+
+  "ORDERS": {
+    "PAGE_TITLE": "Order History - Akar Service",
+    "HEADER_TITLE": "Order History",
+    "TAB_ACTIVE": "Active Orders",
+    "TAB_COMPLETED": "Completed Orders",
+
+    "ORDER_NUMBER_PREFIX": "Order #",
+    "TOTAL_AMOUNT_LABEL": "Total Amount",
+    "CURRENCY_EGP": "EGP",
+
+    "STATUS_IN_PROGRESS": "In Progress",
+    "STATUS_SCHEDULED": "Scheduled",
+    "STATUS_COMPLETED": "Completed",
+
+    "SERVICE_PLUMBING": "Plumbing Services",
+    "SERVICE_AC": "AC Maintenance",
+    "SERVICE_ELECTRICAL": "Electrical Works",
+
+    "DATE_PLUMBING": "October 14, 2023",
+    "DATE_AC": "October 15, 2023",
+    "DATE_ELECTRICAL": "October 2, 2023",
+
+    "BTN_TRACK": "Track Order",
+    "BTN_RECEIPT": "View Receipt",
+    "BTN_REORDER": "Order Again",
+
+    "NAV_HOME": "Home",
+    "NAV_ORDERS": "My Orders",
+    "NAV_PROFILE": "Profile"
+  },
+
+
+
+  "HELP": {
+    "PAGE_TITLE": "Help Center - Akar Service",
+    "HEADER_TITLE": "Help Center",
+    "SEARCH_PLACEHOLDER": "How can we help you?",
+
+    "HERO_TITLE": "We are here to help you",
+    "HERO_SUBTITLE": "Choose a category below or search for your question directly",
+
+    "CATEGORIES_TITLE": "Browse Categories",
+
+    "CAT_ORDERS": "My Orders",
+    "SUB_TRACK_ORDER": "Track My Current Order",
+    "SUB_ORDER_HISTORY": "Order History",
+
+    "CAT_PAYMENTS": "Payments & Pricing",
+    "VISIT_PRICE_TEXT": "Visit fee is",
+    "VISIT_PRICE_VAL": "300 EGP",
+    "SUB_PAYMENT_METHODS": "Payment Methods",
+    "SUB_REQUEST_INVOICE": "Request an Invoice",
+
+    "CAT_ACCOUNT": "Account & Privacy",
+    "SUB_EDIT_PROFILE": "Edit Profile",
+    "SUB_CHANGE_PASSWORD": "Change Password",
+    "SUB_PRIVACY_POLICY": "Privacy Policy",
+
+    "CAT_COMPLAINTS": "Complaints & Feedback",
+    "COMPLAINT_PLACEHOLDER": "Write your feedback here...",
+    "BTN_SEND": "Submit",
+
+    "FAQ_TITLE": "Frequently Asked Questions",
+    "FAQ_VIEW_ALL": "View All",
+
+    "FAQ_Q1": "How can I track my order?",
+    "FAQ_A1": "You can track your order status under the \"My Orders\" section in the main menu, where the technician's status and arrival time are updated in real time.",
+
+    "FAQ_Q2": "What payment methods are available?",
+    "FAQ_A2": "We accept payments via Mada, Visa, Mastercard, as well as cash payment upon service completion.",
+
+    "FAQ_Q3": "Is the service guaranteed?",
+    "FAQ_A3": "Yes, all services provided through \"Akar Service\" come with a quality guarantee of at least 30 days for parts and labor.",
+
+    "CONTACT_CHAT_TITLE": "Chat with Support",
+    "CONTACT_CHAT_SUB": "Instant response from our experts",
+    "CONTACT_CALL_TITLE": "Call Us",
+    "CONTACT_CALL_SUB": "Available 24/7",
+
+    "NAV_HOME": "Home",
+    "NAV_ORDERS": "My Orders",
+    "NAV_PROFILE": "Profile"
+  },
+
+
+
+
+
+  "COMMON": {
+    "CURRENCY": "ُEG"
+  },
+  "RECOMMENDED": {
+    "TITLE": "Recommended for you",
+    "REVIEWS": "reviews",
+    "CARD_1": {
+      "BADGE": "Most Requested",
+      "TITLE": "Split AC Cleaning",
+      "DESC": "Comprehensive cleaning for indoor and outdoor units to ensure best performance."
+    },
+    "CARD_2": {
+      "BADGE": "Special Offer",
+      "TITLE": "Full Home Cleaning",
+      "DESC": "Deep cleaning service for all home corners with modern equipment."
+    }
+  },
+
+
+
+  "PROFILE_EDIT": {
+    "ALT_AVATAR": "Profile Image",
+    "FULL_NAME_LABEL": "Full Name",
+    "EMAIL_LABEL": "Email Address",
+    "PHONE_LABEL": "Phone Number",
+    "SAVE_BUTTON": "Save Changes"
+  },
+
+
+    "SUBSCRIPTION": {
+    "TITLE": "Advanced Annual Package",
+    "EXPIRES_AT": "Expires on: {{date}}",
+    "DETAILS_BTN": "Package Details",
+    "STATS": {
+      "FREE_VISITS": "Free Visits",
+      "AC_MAINTENANCE": "AC Maintenance",
+      "SERVICE_DISCOUNT": "Service Discount"
+    }
+  },
+
+
+  "COMPLETE": {
+    "VISIT_COST": "Visit Cost: {{ cost }} EGP",
+    "PROCEED_ORDER": "Proceed to Order"
+  },
+
+
+  "CHAT": {
+    "CLOSE_CHAT": "Close Chat",
+    "OPEN_CHAT": "Open Chat",
+    "SERVICE_NAME": "Akar Service",
+    "SUPPORT_TITLE": "Technical Support",
+    "RESPONSE_TIME": "Usually responds in less than 2 minutes",
+    "ATTACH_FILE": "Attach File",
+    "SEND": "Send",
+    "INPUT_PLACEHOLDER": "Type your message here..."
+  }
+
+
+
+
+}

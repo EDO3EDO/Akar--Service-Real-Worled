@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "PAGE_TITLE": "تسجيل الدخول - Akar Service",
+    "HEADER": "تسجيل الدخول",
+    "WELCOME_MSG": "مرحباً بك مجدداً في Akar Service",
+    "EMAIL_LABEL": "البريد الإلكتروني",
+    "NAME_LABEL": "الاسم",
+    "EMAIL_PLACEHOLDER": "example@mail.com",
+    "NAME_PLACEHOLDER": "الاسم بالكامل ",
+    "PASSWORD_LABEL": "كلمة المرور",
+    "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+    "PASSWORD_PLACEHOLDER": "••••••••",
+    "SUBMIT_BTN": "تسجيل الدخول",
+    "PASSWORD_WEAK": "كلمة المرور ضعيفة! تأكد من وجود حروف كبيرة، صغيرة، أرقام ورموز.",
+    "PASSWORD_REQUIRED": "كلمة المرور مطلوبة!",
+    "EMAIL_REQUIRED": "البريد الإلكتروني مطلوب!",
+    "EMAIL_INVALID": "صيغة البريد الإلكتروني غير صحيحة! (مثال: example@mail.com)"
+  },
+
+
+
+"HOME": {
+  "WELCOME": "أهلاً بك، مستخدم",
+  "SUB_WELCOME": "كيف يمكننا مساعدتك اليوم؟",
+  "SEARCH_PLACEHOLDER": "ابحث عن خدمات الصيانة...",
+  "BANNER_TITLE": "باقات الصيانة السنوية",
+  "BANNER_DESC": "تمتع براحة البال مع خدماتنا الشاملة على مدار العام بخصومات تصل إلى 30%.",
+  "BANNER_BTN": "اشترك الآن",
+  "SERVICES_TITLE": "خدماتنا",
+  "VIEW_ALL": "عرض الكل",
+  "CAT_ELECTRICITY": "الكهرباء",
+  "CAT_PLUMBING": "السباكة",
+  "CAT_AC": "التكييف",
+  "CAT_CARPENTRY": "النجارة",
+  "CAT_CLEANING": "التنظيف",
+  "CAT_PEST": "مكافحة الحشرات",
+  "RECOMMENDED_TITLE": "موصى به لك",
+  "BADGE_MOST_WANTED": "الأكثر طلباً",
+  "BADGE_FEATURED": "خدمة مميزة",
+  "SERVICE_AC_TITLE": "تنظيف مكيف سبليت",
+  "SERVICE_AC_PRICE": "350 جنيه",
+  "SERVICE_AC_DESC": "تنظيف شامل للوحدات الداخلية والخارجية لضمان...",
+  "SERVICE_CLEAN_TITLE": "تنظيف عميق للمنزل",
+  "SERVICE_CLEAN_PRICE": "650 جنيه",
+  "SERVICE_CLEAN_DESC": "خدمة احترافية تشمل جميع غرف المنزل مع التعقيم...",
+  "REVIEWS": "تقييم",
+  "NAV_HOME": "الرئيسية",
+  "NAV_ORDERS": "طلباتي",
+  "NAV_PROFILE": "حسابي",
+  "NAV_PACKAGES": "الاشتراكات"
+},
+
+  "Electricity": "الكهرباء",
+  "Plumbing": "السباكة",
+  "Air Conditioning": "التكييف",
+  "Carpentry": "النجارة",
+  "Cleaning": "التنظيف",
+  "Pest Control": "مكافحة الحشرات",
+
+
+
+"PROFILE": {
+  "BADGE_PREMIUM": "عضو متميز",
+  "PERSONAL_INFO": "المعلومات الشخصية",
+  "MY_ADDRESSES": "عناويني",
+  "PAYMENT_METHODS": "طرق الدفع",
+  "ORDER_HISTORY": "سجل الطلبات",
+  "NOTIFICATIONS": "الإشارات",
+  "LANGUAGE": "اللغة",
+  "CURRENT_LANG": "العربية",
+  "HELP_CENTER": "مركز المساعدة",
+  "LOGOUT": "تسجيل الخروج",
+  "SHARE_APP": "شارك التطبيق",
+  "SHARE_DESC": "واحصل على خصم 20% لطلبك القادم",
+  "SHARE_BTN": "شارك الآن"
+},
+
+"TRACKING": {
+  "TITLE": "تتبع الطلب",
+  "ORDER_NUM": "12345#",
+  "SERVICE_TYPE": "صيانة تكييف مركزي",
+  "STATUS_ACTIVE": "نشط الآن",
+  "ALERT_ON_WAY": "العامل في طريقه إليك الآن",
+  "WORKER_TITLE": "الفني المسؤول",
+  "SUCCESS_MESSAGE": "تم استلام طلبك بنجاح، وسيتواصل معك الفني في أقرب وقت.",
+  "REVIEWS": "تقييم",
+  "STAGES_TITLE": "مراحل التنفيذ",
+  "STEP_RECEIVED": "تم استلام الطلب",
+  "STEP_RECEIVED_TIME": "10:30 صباحاً",
+  "STEP_ON_WAY": "العامل في الطريق",
+  "STEP_ON_WAY_ETA": "الوصول المتوقع خلال 15 دقيقة",
+  "STEP_ARRIVED": "وصل إلى الموقع",
+  "STEP_COMPLETED": "تم إنهاء الخدمة",
+  "NAV_HOME": "الرئيسية",
+  "NAV_ORDERS": "طلباتي",
+  "NAV_PROFILE": "حسابي"
+},
+"TASK_DETAILS": {
+  "TITLE": "تفاصيل المهمة",
+  "STATUS_IN_PROGRESS": "قيد التنفيذ",
+  "STEP_ACCEPTED": "تم القبول",
+  "STEP_ARRIVED": "تم الوصول",
+  "STEP_START": "بدء العمل",
+  "STEP_DONE": "تم الإنجاز",
+  "STEP_END": "العوده الي باقي المهام",
+  "CLIENT_LABEL": "العميل",
+  "CLIENT_NAME": "أحمد القحطاني",
+  "LOCATION_CITY": "الرياض، المملكة العربية السعودية",
+  "SERVICE_TITLE": "صيانة تكييف",
+  "SERVICE_BADGE": "دوري",
+  "COST_LABEL": "التكلفة المتوقعة",
+  "COST_VALUE": "350 ر.س",
+  "TIME_LABEL": "وقت الموعد",
+  "TIME_VALUE": "اليوم، 04:30 مساءً",
+  "BTN_ARRIVED": "تم الوصول",
+  "BTN_POSTPONE": "تأجيل المهمة",
+  "NAV_TASKS": "المهام",
+  "NAV_EARNINGS": "الأرباح",
+  "NAV_PROFILE": "الحساب"
+},
+
+"BOOKING_DETAILS": {
+  "HEADER_TITLE": "تفاصيل الحجز",
+  "SERVICE_NAME": "كهرباء",
+  "SERVICE_DESC": "صيانة وتصليح التوصيلات الكهربائية",
+  "ADDRESS_TITLE": "عنوان الزيارة",
+  "LABEL_COMPOUND": "اسم الكومباوند / المنطقة",
+  "LABEL_NOTE": "ضع ملاحظاتك",
+  "PLACEHOLDER_COMPOUND": "مثال: مدينتي، التجمع الخامس",
+  "PLACEHOLDER_NOTE": "(ملخص مشاكل الصيانة المنزلية: السباكة، الكهرباء، إلخ)",
+  "LABEL_BUILDING": "رقم المبنى",
+  "LABEL_UNIT": "رقم الوحدة / الشقة",
+  "DATE_TITLE": "موعد الزيارة",
+  "LOC_TITLE": "اختار من عناوينك ",
+  "DAY_SAT": "السبت",
+  "DAY_SUN": "الأحد",
+  "DAY_MON": "الإثنين",
+  "DAY_TUE": "الثلاثاء",
+  "DAY_WED": "الأربعاء",
+  "DAY_THU": "الخميس",
+  "DAY_FRI": "الجمعة",
+  "TIME_MORNING": "صباحاً (9 - 12)",
+  "TIME_NOON": "ظهراً (12 - 3)",
+  "TIME_EVENING": "مساءً (4 - 7)",
+  "PAYMENT_TITLE": "طريقة الدفع",
+  "PAYMENT_CASH": "نقداً (عند الزيارة)",
+  "PAYMENT_CREDIT": "بطاقة ائتمان (Visa/Mastercard)",
+  "FEE_INSPECTION": "رسوم الفحص",
+  "TOTAL_ESTIMATED": "الإجمالي التقريبي",
+  "PRICE_CURRENCY": "150 ج.م",
+  "PRICE_NOTE": "سيتم تحديد التكلفة النهائية بعد المعاينة وإضافة ثمن قطع الغيار إن وجدت.",
+  "BTN_CONFIRM": "تأكيد الطلب",
+  "NAV_HOME": "الرئيسية",
+  "NAV_ORDERS": "طلباتي",
+  "NAV_PROFILE": "حسابي",
+  "LABEL_PHONE": "رقم الهاتف",
+  "PLACEHOLDER_PHONE": "أدخل رقم الهاتف"
+},
+
+  "AVAILABLE_TASKS": {
+    "TITLE": "الطلبات المتاحة",
+    "COUNT_SUFFIX": "طلب متاح",
+    "SERVICE_NAME": "إصلاح تسريب مياه",
+    "LOCATION": "التجمع الخامس",
+    "PRICE_LABEL": "مقدر 250ج.م",
+    "BTN_ACCEPT": "بدأ",
+    "BTN_DETAILS": "التفاصيل"
+  },
+
+
+
+
+  "EARNINGS": {
+    "TITLE": "الأرباح والمستحقات",
+    "SUBTITLE": "تتبع أداءك المالي اليومي والشهري",
+    "WITHDRAW_BTN": "سحب الرصيد",
+    "DAILY": "أرباح اليوم",
+    "WEEKLY": "أرباح الأسبوع",
+    "MONTHLY": "أرباح الشهر",
+    "CURRENCY": "ر.س"
+  },
+
+
+
+
+  "PROFILE_PAGE": {
+    "STATUS": "عضو متميز",
+    "PERSONAL_INFO": "المعلومات الشخصية",
+    "MY_ADDRESSES": "عناويني",
+    "LOGOUT": "تسجيل الخروج"
+  },
+
+
+
+  "MAINTENANCE_PLANS": {
+    "PAGE_TITLE": "باقات الصيانة السنوية - خدمات عقار",
+    "HEADER_TITLE": "الملف الشخصي",
+    "BRAND": "عقار",
+    "GUARANTEE_BADGE": "ضمان خدمة معتمد",
+    "HERO_TITLE": "استثمر في راحة بالك",
+    "HERO_DESC": "استمتع بصيانة شاملة طوال العام مع خصومات تصل إلى 30%.",
+    "TOGGLE_MONTHLY": "شهري",
+    "TOGGLE_YEARLY": "سنوي",
+    "DISCOUNT_YEARLY": "-30%",
+
+    "PLAN_BASIC_TITLE": "الباقة الأساسية",
+    "PLAN_BASIC_DESC": "للبيوت الصغيرة والشقق",
+    "PRICE_BASIC": "500",
+    "PRICE_MONTHLY_BASIC": "99",
+    "PRICE_YEARLY_BASIC": "350",
+    "CURRENCY": "ج.م / شهرياً",
+    "CURRENCY_YEARLY": "ج.م / سنوياً",
+    "FEATURE_BASIC_1": "زيارتين مجانا خلال الشهر",
+    "FEATURE_BASIC_2": "صيانة عدد واحد مكيف مجانا",
+    "FEATURE_BASIC_3": "خصم 20% علي اي زياره بعد الزيارات المجانيه",
+    "BTN_SELECT": "اختيار الباقة",
+
+    "PLAN_STANDARD_TITLE": "الباقة القياسية",
+    "PLAN_STANDARD_DESC": "الأفضل للعائلات",
+    "POPULAR_BADGE": "الأكثر طلباً",
+    "PRICE_MONTHLY_STANDARD": "199",
+    "PRICE_YEARLY_STANDARD": "159",
+    "FEATURE_STANDARD_1": "4 زيارات صيانة وقائية سنوياً",
+    "FEATURE_STANDARD_2": "تنظيف التكييف (وحدتين)",
+    "FEATURE_STANDARD_3": "دعم فني بأولوية قصوى",
+    "BTN_SUBSCRIBE": "اشترك الآن",
+
+    "PLAN_PREMIUM_TITLE": "الباقة المميزة",
+    "PLAN_PREMIUM_DESC": "تغطية شاملة غير محدودة",
+    "PRICE_PREMIUM": "1000",
+    "PRICE_MONTHLY_PREMIUM": "299",
+    "PRICE_YEARLY_PREMIUM": "700",
+    "FEATURE_PREMIUM_1": "4 زيارات مجانا خلال الشهر",
+    "FEATURE_PREMIUM_2": "صيانة عدد 2 مكيف مجانا",
+    "FEATURE_PREMIUM_3": "خصم 20% علي اي زياره بعد الزيارات المجانيه",
+
+    "TRUST_FAST_TITLE": "تنفيذ سريع",
+    "TRUST_FAST_DESC": "وقت استجابة خلال 4 ساعات للطلبات العاجلة",
+    "TRUST_SAFE_TITLE": "آمن وموثوق",
+    "TRUST_SAFE_DESC": "فنيون معتمدون ومؤمن عليهم لمنزلك",
+
+    "NAV_HOME": "الرئيسية",
+    "NAV_ORDERS": "طلباتي",
+    "NAV_PROFILE": "الملف الشخصي"
+  },
+
+  "ADDRESSES": {
+    "PAGE_TITLE": "عقار سيرفيس - عناويني",
+    "HEADER_TITLE": "عناويني",
+    "SECTION_SAVED": "العناوين المحفوظة",
+
+    "LABEL_HOME": "المنزل",
+    "ADDR_HOME": "مدينتي، التجمع الخامس، مبنى 14، شقة 22",
+    "LABEL_WORK": "العمل",
+    "ADDR_WORK": "القرية الذكية، طريق مصر اسكندرية، مبنى B4",
+
+    "SECTION_ADD_NEW": "عنوان الزيارة",
+    "FIELD_AREA": "اسم الكومباوند / المنطقة",
+    "PLACEHOLDER_AREA": "مثال: مدينتي، التجمع الخامس",
+    "FIELD_BUILDING": "رقم المبنى",
+    "FIELD_UNIT": "رقم الوحدة / الشقة",
+    "FIELD_LANDMARK": "علامة مميزة (اختياري)",
+    "PLACEHOLDER_LANDMARK": "مثال: بالقرب من المسجد الكبير",
+
+    "BTN_MAP": "تحديد الموقع على الخريطة",
+    "BTN_SAVE": "حفظ العنوان",
+
+    "NAV_HOME": "الرئيسية",
+    "NAV_ORDERS": "طلباتي",
+    "NAV_PROFILE": "حسابي",
+    "NAV_PACKAGES": "الباقات المميزة"
+  },
+
+
+
+  "PAYMENT": {
+    "PAGE_TITLE": "عقار سيرفيس - الدفع",
+    "SERVICE_TITLE": "إصلاح تسريب مياه",
+    "SERVICE_DATE_LABEL": "تاريخ الخدمة:",
+    "SERVICE_DATE": "24 أكتوبر 2023",
+    "TOTAL_LABEL": "الإجمالي",
+    "CURRENCY_EGP": "ج.م",
+
+    "PAYMENT_METHOD_TITLE": "وسيلة الدفع",
+    "METHOD_CARD": "بطاقة ائتمان / خصم",
+    "METHOD_WALLET": "محفظة إلكترونية",
+
+    "CARD_NUMBER_LABEL": "رقم البطاقة",
+    "CARD_NUMBER_PLACEHOLDER": "0000 0000 0000 0000",
+    "CARD_HOLDER_LABEL": "اسم حامل البطاقة",
+    "CARD_HOLDER_PLACEHOLDER": "الاسم كما هو مكتوب على البطاقة",
+    "EXPIRY_LABEL": "تاريخ الانتهاء",
+    "EXPIRY_PLACEHOLDER": "MM/YY",
+    "CVV_LABEL": "رمز الأمان (CVV)",
+    "CVV_PLACEHOLDER": "123",
+
+    "BTN_SUBMIT": "إتمام الدفع",
+    "SECURE_PAYMENT_TEXT": "دفع آمن ومشفر 100%"
+  },
+
+
+
+  "ORDERS": {
+    "PAGE_TITLE": "سجل الطلبات - Akar Service",
+    "HEADER_TITLE": "سجل الطلبات",
+    "TAB_ACTIVE": "طلبات نشطة",
+    "TAB_COMPLETED": "طلبات منتهية",
+
+    "ORDER_NUMBER_PREFIX": "طلب #",
+    "TOTAL_AMOUNT_LABEL": "إجمالي المبلغ",
+    "CURRENCY_EGP": "ج.م",
+
+    "STATUS_IN_PROGRESS": "جاري التنفيذ",
+    "STATUS_SCHEDULED": "موعد محدد",
+    "STATUS_COMPLETED": "مكتمل",
+
+    "SERVICE_PLUMBING": "أعمال السباكة",
+    "SERVICE_AC": "صيانة تكييف",
+    "SERVICE_ELECTRICAL": "أعمال كهرباء",
+
+    "DATE_PLUMBING": "14 أكتوبر 2023",
+    "DATE_AC": "15 أكتوبر 2023",
+    "DATE_ELECTRICAL": "2 أكتوبر 2023",
+
+    "BTN_TRACK": "تتبع الطلب",
+    "BTN_RECEIPT": "عرض الإيصال",
+    "BTN_REORDER": "طلب مرة أخرى",
+
+    "NAV_HOME": "الرئيسية",
+    "NAV_ORDERS": "طلباتي",
+    "NAV_PROFILE": "حسابي"
+  },
+
+
+
+
+
+
+  "HELP": {
+    "PAGE_TITLE": "مركز المساعدة - عقار سيرفيس",
+    "HEADER_TITLE": "مركز المساعدة",
+    "SEARCH_PLACEHOLDER": "كيف يمكننا مساعدتك؟",
+
+    "HERO_TITLE": "نحن هنا لخدمتكم",
+    "HERO_SUBTITLE": "اختر أحد الفئات أدناه أو ابحث عن سؤالك مباشرة",
+
+    "CATEGORIES_TITLE": "تصفح الفئات",
+
+    "CAT_ORDERS": "طلباتي",
+    "SUB_TRACK_ORDER": "تتبع طلبي الحالي",
+    "SUB_ORDER_HISTORY": "سجل الطلبات",
+
+    "CAT_PAYMENTS": "الدفع والأسعار",
+    "VISIT_PRICE_TEXT": "سعر الزيارة هو",
+    "VISIT_PRICE_VAL": "300 جنيه مصري",
+    "SUB_PAYMENT_METHODS": "طرق الدفع المتاحة",
+    "SUB_REQUEST_INVOICE": "طلب فاتورة",
+
+    "CAT_ACCOUNT": "الحساب والخصوصية",
+    "SUB_EDIT_PROFILE": "تعديل الملف الشخصي",
+    "SUB_CHANGE_PASSWORD": "تغيير كلمة المرور",
+    "SUB_PRIVACY_POLICY": "سياسة الخصوصية",
+
+    "CAT_COMPLAINTS": "الشكاوى والاقتراحات",
+    "COMPLAINT_PLACEHOLDER": "اكتب شكواك هنا...",
+    "BTN_SEND": "إرسال",
+
+    "FAQ_TITLE": "الأسئلة الشائعة",
+    "FAQ_VIEW_ALL": "عرض الكل",
+
+    "FAQ_Q1": "كيف يمكنني تتبع طلبي؟",
+    "FAQ_A1": "يمكنك تتبع حالة الطلب من خلال قسم \"طلباتي\" في القائمة الرئيسية، حيث يتم تحديث حالة الفني وموعد الوصول في الوقت الفعلي.",
+
+    "FAQ_Q2": "ما هي طرق الدفع المتاحة؟",
+    "FAQ_A2": "نقبل الدفع عبر بطاقات مدى، فيزا، ماستركارد، بالإضافة إلى الدفع النقدي عند انتهاء الخدمة.",
+
+    "FAQ_Q3": "هل الخدمة مضمونة؟",
+    "FAQ_A3": "نعم، جميع الخدمات المقدمة عبر \"عقار سيرفيس\" تأتي مع ضمان الجودة لمدة 30 يوماً على الأقل للقطع والعمل.",
+
+    "CONTACT_CHAT_TITLE": "تحدث مع الدعم",
+    "CONTACT_CHAT_SUB": "رد فوري من خبرائنا",
+    "CONTACT_CALL_TITLE": "اتصل بنا",
+    "CONTACT_CALL_SUB": "متاح على مدار 24 ساعة",
+
+    "NAV_HOME": "الرئيسية",
+    "NAV_ORDERS": "طلباتي",
+    "NAV_PROFILE": "الملف الشخصي"
+  } ,
+
+
+
+  "COMMON": {
+    "CURRENCY": "جنيه"
+  },
+  "RECOMMENDED": {
+    "TITLE": "موصى به لك",
+    "REVIEWS": "تقييم",
+    "CARD_1": {
+      "BADGE": "الأكثر طلباً",
+      "TITLE": "تنظيف مكيف سبليت",
+      "DESC": "تنظيف شامل للوحدات الداخلية والخارجية لضمان أفضل أداء."
+    },
+    "CARD_2": {
+      "BADGE": "خصم خاص",
+      "TITLE": "تنظيف منازل شامل",
+      "DESC": "خدمة تنظيف عميق لكل أركان المنزل بأحدث المعدات."
+    }
+  },
+
+
+
+
+  "PROFILE_EDIT": {
+    "ALT_AVATAR": "صورة الملف الشخصي",
+    "FULL_NAME_LABEL": "الاسم بالكامل",
+    "EMAIL_LABEL": "البريد الإلكتروني",
+    "PHONE_LABEL": "رقم الهاتف",
+    "SAVE_BUTTON": "حفظ التعديلات"
+  },
+
+
+  "SUBSCRIPTION": {
+    "TITLE": "الباقة السنوية المتقدمة",
+    "EXPIRES_AT": "تنتهي في: {{date}}",
+    "DETAILS_BTN": "تفاصيل الباقة",
+    "STATS": {
+      "FREE_VISITS": "زيارات مجانية",
+      "AC_MAINTENANCE": "صيانة تكييف",
+      "SERVICE_DISCOUNT": "خصم خدمات"
+    }
+  },
+
+
+  "COMPLETE": {
+    "VISIT_COST": "تكلفة الزيارة: {{ cost }} ج.م",
+    "PROCEED_ORDER": "متابعة الطلب"
+  },
+
+
+  "CHAT": {
+    "CLOSE_CHAT": "إغلاق المحادثة",
+    "OPEN_CHAT": "فتح المحادثة",
+    "SERVICE_NAME": "خدمة العقارات",
+    "SUPPORT_TITLE": "الدعم الفني",
+    "RESPONSE_TIME": "عادة ما يتم الرد خلال أقل من دقيقتين",
+    "ATTACH_FILE": "إرفاق ملف",
+    "SEND": "إرسال",
+    "INPUT_PLACEHOLDER": "اكتب رسالتك هنا..."
+  }
+
+
+}
