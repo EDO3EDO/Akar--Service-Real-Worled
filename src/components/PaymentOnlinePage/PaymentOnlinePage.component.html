@@ -1,0 +1,64 @@
+
+    <main class="flex-grow-1 px-3 py-4 mx-auto w-100 responsive-container">
+
+        <!-- Summary Card -->
+        <section class="card border shadow-sm rounded-4 p-4 mb-4 bg-white">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <h2 class="h6 fw-bold text-dark mb-1">{{ 'PAYMENT.SERVICE_TITLE' | translate }}</h2>
+                    <p class="text-muted small mb-0">{{ 'PAYMENT.SERVICE_DATE_LABEL' | translate }} {{ 'PAYMENT.SERVICE_DATE' | translate }}</p>
+                </div>
+                <div class="bg-primary bg-opacity-10 p-2 rounded-3">
+                    <span class="material-symbols-outlined text-primary">plumbing</span>
+                </div>
+            </div>
+            <hr class="border-secondary border-opacity-25 border-dashed my-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted">{{ 'PAYMENT.TOTAL_LABEL' | translate }}</span>
+                <span class="h4 fw-bold text-primary mb-0">250 {{ 'PAYMENT.CURRENCY_EGP' | translate }}</span>
+            </div>
+        </section>
+
+
+        <section class="mb-4">
+            <h3 class="text-uppercase text-muted fw-bold tracking-wider mb-3" style="font-size: 0.75rem;">{{ 'PAYMENT.PAYMENT_METHOD_TITLE' | translate }}</h3>
+            <div class="d-flex flex-column gap-3">
+
+                <label class="payment-option position-relative d-flex align-items-center justify-content-between p-3 border rounded-4 bg-white cursor-pointer shadow-sm active-method" onclick="togglePayment('card')">
+                    <input checked class="form-check-input d-none" name="payment" type="radio">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="material-symbols-outlined text-secondary">credit_card</span>
+                        <span class="fw-medium">{{ 'PAYMENT.METHOD_CARD' | translate }}</span>
+                    </div>
+                    <div class="d-flex gap-1 align-items-center">
+                        <img class="opacity-75" style="height: 20px;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFDLKSTf4RNgGepa_5tAaHaaJ9g3SY9QQROQUu1ogqwcMkqTY4RV2HU8PtvCfWSuybHuTjtG5eUXAyhEEPmpNKA0sUm6u7BJfhFtW92yHc1MOY89uPtj0h57JSSRQUNsElbQV7SkoetZ9d1V7UQVQVu-6UvtOcJ18JlLlwHMvySgbO1KPJlyKNd6LcZwtD3QBhBoPCpsGPn6if5S-OeMEKMwc8vsGnnUYBAloUW_g7fGVmybFFnBQC" alt="Visa">
+                    </div>
+                </label>
+
+            </div>
+        </section>
+
+        <!-- Credit Card Form -->
+        <section class="vstack gap-3 mb-4" id="card-form">
+            <div>
+                <label class="form-label text-muted small px-1">{{ 'PAYMENT.CARD_NUMBER_LABEL' | translate }}</label>
+                <div class="position-relative">
+                    <input class="form-control rounded-4 py-3 ltr" [placeholder]="'PAYMENT.CARD_NUMBER_PLACEHOLDER' | translate" type="text" id="cc-input">
+                    <span class="position-absolute translate-middle-y top-50 start-0 ms-3 material-symbols-outlined text-muted">lock</span>
+                </div>
+            </div>
+            <div>
+                <label class="form-label text-muted small px-1">{{ 'PAYMENT.CARD_HOLDER_LABEL' | translate }}</label>
+                <input class="form-control rounded-4 py-3" [placeholder]="'PAYMENT.CARD_HOLDER_PLACEHOLDER' | translate" type="text">
+            </div>
+            <div class="row g-3">
+                <div class="col-6">
+                    <label class="form-label text-muted small px-1">{{ 'PAYMENT.EXPIRY_LABEL' | translate }}</label>
+                    <input class="form-control rounded-4 py-3 ltr text-center" [placeholder]="'PAYMENT.EXPIRY_PLACEHOLDER' | translate" type="text">
+                </div>
+                <div class="col-6">
+                    <label class="form-label text-muted small px-1">{{ 'PAYMENT.CVV_LABEL' | translate }}</label>
+                    <input class="form-control rounded-4 py-3 ltr text-center" [placeholder]="'PAYMENT.CVV_PLACEHOLDER' | translate" type="password">
+                </div>
+            </div>
+        </section>

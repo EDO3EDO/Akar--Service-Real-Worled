@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-primary {
+  color: #0052cc !important; }
+
+.btn-primary {
+  background-color: #0052cc !important; }
+
+.margin-custom {
+  margin-bottom: 30px !important; }
+
+.margin-custom-dubel {
+  margin-bottom: 100px !important; }
+
+/*# sourceMappingURL=styles.css.map */

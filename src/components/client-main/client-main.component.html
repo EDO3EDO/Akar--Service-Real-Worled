@@ -1,0 +1,20 @@
+    <nav class="fixed-bottom bg-white border-top shadow-lg px-3 py-1 d-flex justify-content-around align-items-center">
+        <a class="nav-item-custom text-secondary  text-decoration-none text-center d-flex flex-column align-items-center" routerLink="home" routerLinkActive="active">
+                <span class="material-symbols-outlined icon-fill">home</span>
+            <span class="small fw-bold" routerLink="client-home">{{ 'HOME.NAV_HOME' | translate }}</span>
+        </a>
+        <a class="nav-item-custom text-decoration-none text-center text-secondary d-flex flex-column align-items-center" routerLink="orders" routerLinkActive="active">
+            <span class="material-symbols-outlined mb-1">assignment</span>
+            <span class="small fw-semibold">{{ 'HOME.NAV_ORDERS' | translate }}</span>
+        </a>
+        <a class="nav-item-custom text-decoration-none text-center text-secondary d-flex flex-column align-items-center" routerLink="sup" routerLinkActive="active" >
+            <span class="material-symbols-outlined mb-1">workspace_premium</span>
+            <span class="small fw-semibold">{{ 'HOME.NAV_PACKAGES' | translate }}</span>
+        </a>
+        <a class="nav-item-custom text-decoration-none text-center text-secondary d-flex flex-column align-items-center" routerLink="profile" routerLinkActive="active" >
+            <span class="material-symbols-outlined mb-1">person</span>
+            <span class="small fw-semibold">{{ 'HOME.NAV_PROFILE' | translate }}</span>
+        </a>
+    </nav>
+
+    <router-outlet></router-outlet>

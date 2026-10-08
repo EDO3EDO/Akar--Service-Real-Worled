@@ -1,0 +1,19 @@
+
+      <nav class="fixed-bottom bg-white border-top  shadow px-3 py-2 d-flex justify-content-around align-items-center rounded-top-4 bottom-nav">
+        <a class="nav-item-active text-decoration-none text-secondary  px-4 py-1 d-flex flex-column align-items-center cursor-pointer" routerLink="workertask" routerLinkActive="active-ring">
+            <span class="material-symbols-outlined">assignment</span>
+            <span class="text-xxs fw-bold">{{ 'TASK_DETAILS.NAV_TASKS' | translate }}</span>
+        </a>
+        <a class="nav-item text-secondary d-flex flex-column text-decoration-none align-items-center px-4 py-1 cursor-pointer" routerLink="workerprofit" routerLinkActive="active-ring">
+            <span class="material-symbols-outlined">payments</span>
+            <span class="text-xxs">{{ 'TASK_DETAILS.NAV_EARNINGS' | translate }}</span>
+        </a>
+        <a class="nav-item text-secondary d-flex flex-column text-decoration-none align-items-center px-4 py-1 cursor-pointer" routerLink="workerprofile" routerLinkActive="active-ring">
+            <span class="material-symbols-outlined">person</span>
+            <span class="text-xxs">{{ 'TASK_DETAILS.NAV_PROFILE' | translate }}</span>
+        </a>
+      </nav>
+
+
+
+<router-outlet></router-outlet>

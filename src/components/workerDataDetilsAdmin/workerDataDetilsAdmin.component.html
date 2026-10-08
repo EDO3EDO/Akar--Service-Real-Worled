@@ -1,0 +1,201 @@
+
+
+    <main class="main-content container-fluid px-2 px-sm-4">
+@for (data of showDataWorker(); track $index) {
+
+        <!-- Hero Profile Section -->
+        <div class="card border-0 bg-surface-lowest shadow-sm rounded-4 p-3 p-sm-4 mb-4 position-relative overflow-hidden">
+            <div class="hero-glow"></div>
+            <div class="position-relative z-1 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-3">
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 w-100 w-xl-auto">
+                    <div class="position-relative profile-avatar rounded-4 overflow-hidden flex-shrink-0 bg-surface-variant">
+                        <img [src]="data.photo" alt="محمود عبد الرحمن إبراهيم" class="w-100 h-100 object-fit-cover">
+                        <div class="position-absolute bottom-0 start-0 m-1 bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center check-badge shadow-sm">
+                            <span class="material-symbols-outlined fs-7">check</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                            <h1 class="h4 h3-sm fw-bold mb-0 text-on-surface">{{data.name}}</h1>
+                            <span class="badge bg-primary-fixed text-primary font-monospace rounded-2 px-2 py-1 fs-8">#TECH-1082</span>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-2 text-on-surface-variant fs-7">
+                            <span class="d-inline-flex align-items-center gap-1 text-primary fw-bold">
+                                <span class="material-symbols-outlined fs-6">ac_unit</span>
+                                {{data.job}}
+                            </span>
+                            <span class="text-outline-variant d-none d-sm-inline">•</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3 w-100 w-xl-auto">
+                    <div class="position-relative profile-avatar rounded-4 overflow-hidden flex-shrink-0 bg-surface-variant">
+                        <img [src]="data.photo" alt="محمود عبد الرحمن إبراهيم" class="w-100 h-100 object-fit-cover">
+                        <div class="position-absolute bottom-0 start-0 m-1 bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center check-badge shadow-sm">
+                            <span class="material-symbols-outlined fs-7">check</span>
+                        </div>
+                    </div>
+                            <span class="text-outline-variant d-none d-sm-inline">•</span>
+                      <div class="position-relative profile-avatar rounded-4 overflow-hidden flex-shrink-0 bg-surface-variant">
+                        <img [src]="data" alt="محمود عبد الرحمن إبراهيم" class="w-100 h-100 object-fit-cover">
+                        <div class="position-absolute bottom-0 start-0 m-1 bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center check-badge shadow-sm">
+                            <span class="material-symbols-outlined fs-7">check</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Metric Cards Grid -->
+        <div class="row g-3 mb-4">
+            <!-- Metric 1 -->
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="card border-0 bg-surface-lowest shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div>
+                            <span class="fs-8 text-on-surface-variant text-uppercase fw-bold d-block mb-1">إجمالي الزيارات والمهام</span>
+                            <span class="display-6 fw-bold text-primary lh-1">342</span>
+                        </div>
+                        <div class="icon-box rounded-3 bg-primary-fixed text-primary">
+                            <span class="material-symbols-outlined fs-4">task_alt</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-2 d-flex align-items-center justify-content-between fs-7 border-top border-light">
+                        <span class="text-secondary fw-semibold d-inline-flex align-items-center gap-1">
+                            <span class="material-symbols-outlined fs-6">trending_up</span>
+                            +18 زيارة هذا الشهر
+                        </span>
+                        <span class="text-outline">مكتملة 100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="col-12 col-sm-6 col-xl-3">
+                <div class="card border-0 bg-surface-lowest shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div>
+                            <span class="fs-8 text-on-surface-variant text-uppercase fw-bold d-block mb-1">الأرباح والمستحقات المكتسبة</span>
+                            <div class="d-flex align-items-baseline gap-1">
+                                <span class="h2 fw-bold text-on-surface mb-0">48,600</span>
+                                <span class="fs-8 text-on-surface-variant">ج.م</span>
+                            </div>
+                        </div>
+                        <div class="icon-box rounded-3 bg-secondary-fixed text-on-secondary-fixed-variant">
+                            <span class="material-symbols-outlined fs-4">account_balance_wallet</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-2 d-flex align-items-center justify-content-between fs-7 border-top border-light">
+                        <span class="text-outline">معلق للصرف:</span>
+                        <span class="text-primary fw-semibold">3,450 ج.م</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Split View Content -->
+        <div class="row g-4 mb-4">
+            <!-- Left Side Details -->
+            <div class="col-12 col-lg-8 d-flex flex-column gap-4">
+
+                <!-- Official Info Dossier -->
+                <div class="card border-0 bg-surface-lowest shadow-sm rounded-4 p-3 p-sm-4">
+                    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center justify-content-between gap-2 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="section-indicator bg-primary"></span>
+                            <h2 class="h5 fw-bold mb-0 text-on-surface">ملف البيانات الرسمية والاتصال</h2>
+                        </div>
+                        <span class="badge bg-secondary-container text-secondary rounded-pill px-3 py-2 fs-8 fw-bold">ملف مكتمل ومُعتمد</span>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-12 col-sm-6">
+                            <div class="bg-surface-container-low p-3 rounded-3 d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-avatar bg-surface-container text-primary">
+                                        <span class="material-symbols-outlined fs-5">phone</span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="fs-8 text-outline">رقم الهاتف المحمول</span>
+                                        <span class="fs-7 fw-semibold text-on-surface" dir="ltr">{{data.phone}}</span>
+                                    </div>
+                                </div>
+                                <a href="tel:+201098765432" class="text-primary p-1 hover-bg rounded-2">
+                                    <span class="material-symbols-outlined fs-5">call</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="bg-surface-container-low p-3 rounded-3 d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-avatar bg-secondary-fixed text-on-secondary-fixed-variant">
+                                        <span class="material-symbols-outlined fs-5">chat</span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="fs-8 text-outline">واتساب مباشر</span>
+                                        <span class="fs-7 fw-semibold text-on-surface" dir="ltr">{{data.phone}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="bg-surface-container-low p-3 rounded-3 d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-avatar bg-surface-container text-primary">
+                                        <span class="material-symbols-outlined fs-5">mail</span>
+                                    </div>
+                                    <div class="d-flex flex-column overflow-hidden">
+                                        <span class="fs-8 text-outline">البريد الإلكتروني المعتمد</span>
+                                        <span class="fs-7 fw-semibold text-on-surface text-truncate">{{data.email}}</span>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-secondary fs-5 flex-shrink-0">verified</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="bg-surface-container-low p-3 rounded-3 d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="icon-avatar bg-surface-container text-primary">
+                                        <span class="material-symbols-outlined fs-5">badge</span>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="fs-8 text-outline">ID</span>
+                                        <span class="fs-7 fw-semibold text-on-surface" dir="ltr">{{data.uid}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 pt-3 bg-surface-container-low rounded-3 p-3">
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-4">
+                                <span class="fs-8 text-outline d-block mb-1">التحقق الجنائي (الفيش والتشبيه)</span>
+                                <div class="d-flex align-items-center gap-1 text-secondary fw-semibold fs-7">
+                                    <span class="material-symbols-outlined fs-6">shield</span>
+                                    تم التحقق (سليم ولا توجد سوابق)
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <span class="fs-8 text-outline d-block mb-1">تاريخ البدأ </span>
+                                <span class="fs-7 fw-semibold text-on-surface">{{data.CreatDat.toDate() | date:'mediumDate':'':'ar-EG'}}</span>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <span class="fs-8 text-outline d-block mb-1">فصيلة الدم والطوارئ</span>
+                                <span class="fs-7 fw-semibold text-on-surface">O+ | هاتف الزوجة: 01011223344</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+}
+    </main>

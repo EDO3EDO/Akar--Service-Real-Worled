@@ -1,0 +1,132 @@
+<main class="main-content container col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 py-4">
+  <div class="d-flex flex-column gap-3 gap-md-4">
+
+    <!-- 1. حالة التحميل (Loading State) -->
+    @if (isLoading()) {
+      <div class="text-center py-5 my-5">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status"></div>
+        <h4 class="h5 fw-semibold mt-3 text-on-surface">جاري تأكيد عملية الدفع وتفعيل الاشتراك...</h4>
+        <p class="text-muted small">يرجى الانتظار وعدم إغلاق الصفحة</p>
+      </div>
+    }
+
+    <!-- 2. حالة نجاح الدفع والاشتراك (Success State) -->
+    @else if (isSuccess() && invoiceData(); as invoice) {
+      <div class="text-center position-relative py-3">
+        <div class="spark spark-1"></div>
+        <div class="spark spark-2"></div>
+        <div class="spark spark-3"></div>
+
+        <div class="position-relative d-inline-block mb-3">
+          <div class="icon-outer-ring rounded-circle d-flex align-items-center justify-content-center">
+            <div class="icon-middle-ring rounded-circle d-flex align-items-center justify-content-center shadow">
+              <div class="icon-inner-ring bg-main-color rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm">
+                <span class="material-symbols-outlined icon-fill fs-3">check</span>
+              </div>
+            </div>
+          </div>
+          <div class="star-badge position-absolute bottom-0 end-0 rounded-circle p-1 shadow-sm d-flex align-items-center justify-content-center">
+            <span class="material-symbols-outlined icon-fill text-warning fs-6">stars</span>
+          </div>
+        </div>
+
+        <h2 class="h4 fw-semibold text-on-surface mb-2">تم الاشتراك بنجاح!</h2>
+        <p class="text-muted small mx-auto max-w-xs leading-relaxed">
+          تهانينا! تم تفعيل اشتراكك بنجاح، استمتع بجميع المزايا والخدمات المتاحة في باقتك مع عقار سيرفس.
+        </p>
+      </div>
+
+      <div class="card card-custom border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="card-header-custom p-3 p-md-4 d-flex align-items-center justify-content-between border-bottom">
+          <div class="d-flex align-items-center gap-2">
+            <div class="badge-icon rounded-3 p-2 bg-primary-subtle d-flex align-items-center justify-content-center">
+              <span class="material-symbols-outlined fs-5">verified_user</span>
+            </div>
+            <div>
+              <span class="text-uppercase text-muted extra-small d-block fw-bold">نوع الاشتراك</span>
+              <h3 class="h6 m-0 fw-semibold text-on-surface">{{ invoice.packageName }}</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body p-3 p-md-4">
+          <div class="row g-2 g-md-3">
+            <div class="col-12 col-sm-6">
+              <div class="bg-light-custom p-2 p-md-3 rounded-3 h-100">
+                <span class="text-muted extra-small d-flex align-items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined extra-small-icon">tag</span> رقم الفاتورة
+                </span>
+                <span class="small main-color fw-semibold text-on-surface">#{{ invoice.orderId }}</span>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="bg-light-custom p-2 p-md-3 rounded-3 h-100">
+                <span class="text-muted extra-small d-flex align-items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined extra-small-icon">payments</span> المبلغ المدفوع
+                </span>
+                <span class="small fw-bold main-color">{{ invoice.amount | number }} ج.م</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="bg-light-custom p-2 p-md-3 rounded-3">
+                <span class="text-muted extra-small d-flex align-items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined extra-small-icon">event_repeat</span> فترة الصلاحية والتجديد
+                </span>
+                <span class="small text-on-surface">{{ invoice.startDate }} — {{ invoice.endDate }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3 mt-md-4">
+            <h4 class="text-muted extra-small d-flex align-items-center gap-1 mb-2 fw-bold">
+              <span class="material-symbols-outlined main-color fs-6">task_alt</span> المميزات المفعلة في حسابك فوراً
+            </h4>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex align-items-start gap-2 bg-light-custom p-2 p-md-3 rounded-3">
+                <span class="material-symbols-outlined main-color fs-6 icon-fill mt-1 flex-shrink-0">check_circle</span>
+                <p class="small m-0 text-on-surface">زيارات دورية مجانية بحسب كوتا الباقة المفعلة</p>
+              </div>
+              <div class="d-flex align-items-start gap-2 bg-light-custom p-2 p-md-3 rounded-3">
+                <span class="material-symbols-outlined main-color fs-6 icon-fill mt-1 flex-shrink-0">check_circle</span>
+                <p class="small m-0 text-on-surface">فحص وقائي شامل للتكييف، السباكة، وشبكات الكهرباء</p>
+              </div>
+              @if (invoice.discount > 0) {
+                <div class="d-flex align-items-start gap-2 bg-light-custom p-2 p-md-3 rounded-3">
+                  <span class="material-symbols-outlined main-color fs-6 icon-fill mt-1 flex-shrink-0">check_circle</span>
+                  <p class="small m-0 text-on-surface">خصم {{ invoice.discount }}% معتمد على كافة الخدمات الإضافية</p>
+                </div>
+              }
+            </div>
+          </div>
+
+          <button id="btn-invoice" type="button" class="btn btn-link text-decoration-none w-100 main-color fw-semibold mt-2 d-flex align-items-center justify-content-center gap-2" (click)="downloadInvoice()">
+            <span class="material-symbols-outlined fs-5 transition-icon">download</span>
+            <span class="small">تحميل الفاتورة الإلكترونية (PDF)</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column gap-2 custom-margin">
+        <button type="button" class="btn btn-light-custom text-on-surface rounded-4 fw-semibold d-flex align-items-center justify-content-center gap-2 py-2 py-md-3" (click)="goToDashboard()">
+          <span class="material-symbols-outlined fs-5">home</span>
+          <span class="small">العودة إلى لوحة التحكم الرئيسية</span>
+        </button>
+      </div>
+    }
+
+    <!-- 3. حالة فشل العملية (Failure State) -->
+    @else {
+      <div class="card border-0 shadow-sm p-4 text-center rounded-4 my-5">
+        <div class="mb-3">
+          <span class="material-symbols-outlined text-danger display-3">error</span>
+        </div>
+        <h2 class="h5 fw-bold text-danger mb-2">فشلت عملية الدفع</h2>
+        <p class="text-muted small mb-4">لم نتمكن من تأكيد عملية الدفع وتفعيل الاشتراك، يرجى المحاولة مرة أخرى.</p>
+        <button class="btn btn-primary rounded-pill py-2 px-4 fw-semibold" (click)="retryPayment()">
+          إعادة المحاولة
+        </button>
+      </div>
+    }
+
+  </div>
+</main>

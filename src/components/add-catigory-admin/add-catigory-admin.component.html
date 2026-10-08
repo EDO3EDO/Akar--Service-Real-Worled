@@ -1,0 +1,177 @@
+<main class="flex-grow-1 container-fluid max-w-1560 px-3 px-md-4 py-3 py-md-4" dir="rtl">
+  <!-- Page Header Section -->
+  <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-4">
+    <div>
+      <h1 class="h4 h3-md fw-extrabold text-dark mb-1">إدارة كروت قسم "موصى به لك"</h1>
+      <p class="text-muted fs-xs fs-sm-sm mb-0">قم بتصميم وتعديل عروض الخدمات والبطاقات المميزة التي تظهر للمستخدمين مباشرة في واجهة التطبيق الرئيسية.</p>
+    </div>
+  </div>
+
+  <div class="row g-3 g-md-4 align-items-start">
+
+    <!-- Left Side: Live Preview & Active Offers -->
+    <section class="col-12 col-lg-6 order-2 order-lg-1" id="preview-section">
+      <div class="d-flex flex-column gap-3 gap-md-4">
+
+        <!-- Live Preview Simulation Box -->
+        <div class="card border-0 shadow-card rounded-4 p-3 p-md-4">
+          <div class="d-flex align-items-center justify-content-between pb-3 mb-3 border-bottom">
+            <div class="d-flex align-items-center gap-2">
+              <span class="pulse-dot bg-success rounded-circle"></span>
+              <h2 class="h6 fw-bold text-dark mb-0">معاينة مباشرة (Live Preview)</h2>
+            </div>
+            <span class="badge bg-light text-secondary rounded-pill px-2 px-md-3 py-1 fw-medium fs-xs">موصى به لك</span>
+          </div>
+
+          <div class="d-flex flex-column gap-3">
+            <!-- Dynamic Preview Card connected to Form -->
+            <div class="card border rounded-4 p-3 shadow-sm">
+              <div class="d-flex align-items-center justify-content-between gap-2 mb-1">
+                <div>
+                  <span class="badge border px-2 py-1 rounded-2 fs-xs mb-1"
+                        [ngClass]="newOffer.category === 'most_requested' ? 'bg-success-subtle text-success border-success-subtle' : 'bg-primary-subtle text-primary border-primary-subtle'">
+                    {{ newOffer.badgeText || (newOffer.category === 'most_requested' ? 'الأكثر طلباً' : 'خصم خاص') }}
+                  </span>
+                  <h4 class="h6 fw-bold text-dark mb-0">{{ newOffer.title || 'عنوان الخدمة' }}</h4>
+                </div>
+                <div class="fw-black fs-5 text-nowrap"
+                     [ngClass]="newOffer.category === 'most_requested' ? 'text-success' : 'text-primary'">
+                  {{ newOffer.price || 0 }} ج.م
+                </div>
+              </div>
+              <p class="text-muted fs-xs mb-2 text-truncate-2">{{ newOffer.description || 'وصف الخدمة سيظهر هنا...' }}</p>
+              <div class="d-flex align-items-center fs-xs text-muted">
+                <span class="material-symbols-outlined icon-filled text-warning fs-6 me-1">star</span>
+                <span class="fw-bold text-dark ms-1">{{ newOffer.rating }}</span>
+                <span class="text-muted ms-1">({{ newOffer.ratingCount }} تقييم)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currently Active Offers Management Table -->
+        <div class="card border-0 shadow-card rounded-4 p-3 p-md-4">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h3 class="h6 fw-bold text-dark mb-0">العروض المتاحة حالياً ({{ offers().length }})</h3>
+          </div>
+
+          <div class="d-flex flex-column divide-y">
+            <div *ngFor="let offer of offers()" class="py-3 d-flex align-items-center justify-content-between gap-2 gap-md-3" [class.opacity-50]="!offer.isActive">
+              <div class="d-flex align-items-center gap-2 gap-md-3 min-w-0">
+                <img [src]="offer.imageUrl || 'assets/default.jpg'" class="rounded-3 border object-fit-cover" style="width: 48px; height: 48px;">
+                <div class="text-truncate">
+                  <p class="fw-bold text-dark mb-0 fs-sm text-truncate">{{ offer.title }}</p>
+                  <p class="fs-xs mb-0 text-truncate" [class.text-success]="offer.category === 'most_requested'" [class.text-primary]="offer.category !== 'most_requested'">
+                    القسم: {{ offer.category === 'most_requested' ? 'الأكثر طلباً' : 'خصم خاص' }} • {{ offer.price }} ج.م
+                  </p>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-1 flex-shrink-0">
+                <button type="button" (click)="toggleStatus(offer)" class="btn btn-icon p-1 text-secondary rounded-2" [title]="offer.isActive ? 'إخفاء' : 'إظهار'">
+                  <span class="material-symbols-outlined fs-5">{{ offer.isActive ? 'pause_circle' : 'play_circle' }}</span>
+                </button>
+                <button type="button" (click)="removeOffer(offer.id)" class="btn btn-icon p-1 text-danger rounded-2" title="حذف">
+                  <span class="material-symbols-outlined fs-5">delete</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Right Side: Create Offer Form -->
+    <section class="col-12 col-lg-6 order-1 order-lg-2">
+      <form (ngSubmit)="onSubmit()" class="card border-0 shadow-card rounded-4 p-3 p-md-4 gap-3 gap-md-4">
+        <div class="border-bottom pb-3">
+          <h2 class="h5 fw-extrabold text-dark mb-1">إنشاء عرض / خدمة جديدة</h2>
+          <p class="text-muted fs-xs mb-0">أدخل تفاصيل العرض لإنشاء بطاقة تظهر للمستخدمين.</p>
+        </div>
+
+        <div class="row g-3">
+          <!-- Title -->
+          <div class="col-12">
+            <label class="form-label fs-xs fw-bold text-dark">عنوان الخدمة / العرض <span class="text-danger">*</span></label>
+            <input type="text" [(ngModel)]="newOffer.title" name="title" class="form-control rounded-3 fs-sm" placeholder="مثال: تنظيف مكيف سبليت" required />
+          </div>
+
+          <!-- Category Selection -->
+          <div class="col-12 col-md-6">
+            <label class="form-label fs-xs fw-bold text-dark">قسم العرض <span class="text-danger">*</span></label>
+            <select [(ngModel)]="newOffer.category" name="category" class="form-select rounded-3 fs-sm" required>
+              <option  value="most_requested">الأكثر طلباً</option>
+              <option  value="special_discount">خصم خاص</option>
+            </select>
+          </div>
+
+          <!-- Badge Text -->
+          <div class="col-12 col-md-6">
+            <label class="form-label fs-xs fw-bold text-dark">شارة التميز (Badge Tag)</label>
+            <input type="text" [(ngModel)]="newOffer.badgeText" name="badgeText" class="form-control rounded-3 fs-sm" placeholder="مثال: الأكثر طلباً، خصم 20%" />
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="row g-3">
+          <div class="col-12 col-sm-12">
+            <label class="form-label fs-xs fw-bold text-dark">السعر النهائي (جنيه) <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <input type="number" [(ngModel)]="newOffer.price" name="price" class="form-control rounded-start-3 fs-sm fw-bold" placeholder="99" required />
+              <span class="input-group-text rounded-end-3 fs-xs fw-bold text-muted">ج.م</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div>
+          <label class="form-label fs-xs fw-bold text-dark">وصف الخدمة المختصر <span class="text-danger">*</span></label>
+          <textarea [(ngModel)]="newOffer.description" name="description" class="form-control rounded-3 fs-sm" rows="2" placeholder="تنظيف شامل للوحدات الداخلية والخارجية..."></textarea>
+        </div>
+
+        <!-- Rating Inputs -->
+        <div class="row g-3">
+          <div class="col-12 col-sm-6">
+            <label class="form-label fs-xs fw-bold text-dark">التقييم الابتدائي (من 5.0)</label>
+            <input type="number" step="0.1" min="1" max="5" [(ngModel)]="newOffer.rating" name="rating" class="form-control rounded-3 fs-sm" />
+          </div>
+
+          <div class="col-12 col-sm-6">
+            <label class="form-label fs-xs fw-bold text-dark">عدد المراجعات</label>
+            <input type="number" [(ngModel)]="newOffer.ratingCount" name="ratingCount" class="form-control rounded-3 fs-sm" />
+          </div>
+        </div>
+
+        <!-- File Upload -->
+        <div>
+          <label class="form-label fs-xs fw-bold text-dark">صورة العرض</label>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control rounded-3 fs-sm mb-2" />
+          <input type="text" [(ngModel)]="newOffer.imageUrl" name="imageUrl" class="form-control rounded-3 fs-sm" placeholder="أو أضف رابط صورة مباشر (URL)" />
+        </div>
+
+        <!-- Display Toggle -->
+        <div class="pt-2 border-top">
+          <div class="d-flex align-items-center justify-content-between">
+            <div>
+              <p class="fs-xs fw-bold text-dark mb-0">تفعيل الظهور مباشرة</p>
+              <p class="fs-xs text-muted mb-0">سيظهر هذا العرض فوراً للمستخدمين</p>
+            </div>
+            <div class="form-check form-switch fs-5 ms-2">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="newOffer.isActive" name="isActive" role="switch" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="pt-3 border-top d-flex justify-content-end gap-2">
+          <button type="submit" [disabled]="isLoading" class="btn btn-primary rounded-3 fs-xs fw-bold px-4 py-2 d-inline-flex align-items-center gap-2 shadow-sm">
+            <span class="material-symbols-outlined fs-6">check</span>
+            {{ isLoading ? 'جاري الحفظ...' : 'نشر العرض في التطبيق' }}
+          </button>
+        </div>
+      </form>
+    </section>
+
+  </div>
+</main>

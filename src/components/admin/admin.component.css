@@ -1,0 +1,104 @@
+/* Sidebar Styles */
+.sidebar {
+  width: 288px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  padding: 16px 12px;
+  min-height: calc(100vh - 64px);
+}
+
+.logo-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link-custom {
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #434654;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover {
+  background-color: #eff4ff;
+  color: #121c2a;
+}
+
+.nav-link-custom.active {
+  background-color: #dee9fc;
+  color: #003d9b;
+}
+
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #003d9b;
+}
+
+.icon-filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+.label-caps {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.font-11 {
+  font-size: 11px;
+}
+
+.fs-7 {
+  font-size: 0.875rem;
+}
+
+/* Color Classes Used in Sidebar */
+.bg-primary { background-color: #003d9b !important; }
+.text-on-primary { color: #ffffff !important; }
+.text-on-surface { color: #121c2a !important; }
+.text-on-surface-variant { color: #434654 !important; }
+.text-outline { color: #737685 !important; }
+.bg-primary-fixed { background-color: #dae2ff !important; }
+.text-on-primary-fixed { color: #001848 !important; }
+.bg-primary-container { background-color: #0052cc !important; }
+.bg-secondary-container { background-color: #86f898 !important; }
+.text-on-secondary-container { color: #00722f !important; }
+.bg-surface-container-low { background-color: #eff4ff !important; }
+.bg-surface-container-highest { background-color: #d9e3f6 !important; }
+.text-surface-container { color: #e6eeff !important; }
+
+/* Profile Avatar & Buttons inside Sidebar */
+.avatar-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #121c2a;
+  transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+  background-color: #dee9fc;
+}

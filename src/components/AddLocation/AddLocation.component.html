@@ -1,0 +1,248 @@
+@if (!iframeUrl()) {
+  @if(showser()){
+  <main class="container max-w-2xl px-3 space-y-md">
+
+    <section class="mt-4">
+        <div class="bg-primary-container text-on-primary-container p-3 rounded-4 shadow-sm d-flex align-items-center justify-content-between">
+            <div>
+                <h2 class="fs-5 fw-bold mb-1">{{ showser()?.serviceType | translate }}</h2>
+                <p class="small opacity-90 mb-0">{{ 'BOOKING_DETAILS.SERVICE_DESC' | translate }}</p>
+            </div>
+            <span class="material-symbols-outlined font-filled display-4">{{showser()?.icon}}</span>
+        </div>
+    </section>
+
+    <section class="mt-4">
+        <div class="d-flex align-items-center gap-1 text-primary mb-3">
+            <span class="material-symbols-outlined">location_on</span>
+            <h3 class="fs-5 fw-bold mb-0">{{ 'BOOKING_DETAILS.ADDRESS_TITLE' | translate }}</h3>
+        </div>
+
+        <form [formGroup]="locationForm">
+            <div class="row g-3">
+            <div class="col-12">
+                <label class="form-label small text-secondary px-1 mb-1">{{ 'BOOKING_DETAILS.LABEL_COMPOUND' | translate }} </label>
+                <input [value]="mainloc().Compound" formControlName="Compound"  (input)="newCompound($any($event.target).value)" class="form-control custom-input p-3 bg-surface-container-lowest rounded-3" [placeholder]="'BOOKING_DETAILS.PLACEHOLDER_COMPOUND' | translate" type="text">
+            </div>
+            <div class="col-6">
+              <label class="form-label small text-secondary px-1 mb-1">{{ 'BOOKING_DETAILS.LABEL_BUILDING' | translate }} </label>
+              <input [value]="mainloc().Building" formControlName="Building"  (input)="newBuilding($any($event.target).value)" class="form-control custom-input p-3 bg-surface-container-lowest rounded-3 text-center" placeholder="00" type="text">
+            </div>
+            <div class="col-6">
+              <label class="form-label small text-secondary px-1 mb-1">{{ 'BOOKING_DETAILS.LABEL_UNIT' | translate }} </label>
+              <input [value]="mainloc().Unit" formControlName="Unit"  (input)="newUnit($any($event.target).value)" class="form-control custom-input p-3 bg-surface-container-lowest rounded-3 text-center" placeholder="00" type="text">
+            </div>
+
+        <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="d-flex align-items-center btn saveLocation gap-1 text-primary mb-3" type="button">
+        <h3 class="fs-5 fw-bold mb-0">{{ 'BOOKING_DETAILS.LOC_TITLE' | translate }}</h3>
+        <span class="material-symbols-outlined">open_in_new</span>
+        </button>
+
+            <!-- //////....Note....Custom input (Optional) ///// -->
+            <div class="col-12">
+                <label class="form-label small text-secondary px-1 mb-1">{{ 'BOOKING_DETAILS.LABEL_NOTE' | translate }}</label>
+                <input [value]="mainloc().NOTE" formControlName="NOTE" (input)="newNOTE($any($event.target).value)" class="form-control custom-input p-3 bg-surface-container-lowest rounded-3" [placeholder]="'BOOKING_DETAILS.PLACEHOLDER_NOTE' | translate" type="text">
+            </div>
+
+
+            <!-- /////...Phone....Required Input ///// -->
+            <div class="position-relative flex-grow-1 d-flex align-items-center col-12">
+              <input [value]="mainloc().phone" formControlName="phone" dir="ltr"  (input)="newPhone($any($event.target).value)" class="form-control custom-input p-3 bg-surface-container-lowest rounded-3" placeholder='010xxxxxxxx' type="tel">
+              <span class="position-absolute end-0 pe-3 text-muted small" dir="ltr">+20</span>
+            </div>
+            @if (locationForm.get('phone')?.touched && locationForm.get('phone')?.invalid) {
+          <div class="text-danger small">
+            @if (locationForm.get('phone')?.hasError('required')) { <span>رقم الهاتف مطلوب.</span> }
+            @if (locationForm.get('phone')?.hasError('pattern')) { <span>أدخل رقم هاتف مصري صحيح (مثال: 01012345678).</span> }
+          </div>
+        }
+
+
+        </div>
+        </form>
+
+    </section>
+
+    <section class="mt-4">
+        <div class="d-flex align-items-center gap-1 text-primary mb-3">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <h3 class="fs-5 fw-bold mb-0">{{ 'BOOKING_DETAILS.DATE_TITLE' | translate }}</h3>
+        </div>
+
+        <div class="d-flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        @for (item of VisitDay; track $index) {
+            <div class="flex-shrink-0 ">
+                <input class="date-radio-hidden" [id]='`date${$index}`' name="date" type="radio">
+                <label (click)="selectT(item)" (click)="check(orderSelected()[$index].orderUid)" [class.Gamed]="orderSelected()[$index].select" class="date-custom-label d-flex flex-column align-items-center justify-content-center p-3 bg-surface-container-lowest border rounded-4 cursor-pointer transition-all  " [for]="`date${$index}`">
+                    <span class="small">{{ item | translate }}</span>
+                    <span class="fs-4 fw-bold">{{selectdAte + $index}}</span>
+                </label>
+            </div>
+          }
+        </div>
+
+        <div class="row mt-3">
+          @if(!orderSelected()[0]?.select){
+            <div class="col-6 position-relative">
+                <select (change)="selectTime($event)" [value]="mainloc().Time" id="arrow-none" class="form-select custom-input p-3 bg-surface-container-lowest rounded-3 appearance-none">
+                    <option>{{ 'BOOKING_DETAILS.TIME_MORNING' | translate }}</option>
+                    <option>{{ 'BOOKING_DETAILS.TIME_NOON' | translate }}</option>
+                    <option>{{ 'BOOKING_DETAILS.TIME_EVENING' | translate }}</option>
+                </select>
+                <span class="material-symbols-outlined position-absolute left-custom top-50 translate-middle-y pointer-events-none text-secondary">expand_more</span>
+            </div>
+          }
+        </div>
+    </section>
+
+    <section class="mt-4">
+        <div class="d-flex align-items-center gap-1 text-primary mb-3">
+            <span class="material-symbols-outlined">payments</span>
+            <h3 class="fs-5 fw-bold mb-0">{{ 'BOOKING_DETAILS.PAYMENT_TITLE' | translate }}</h3>
+        </div>
+        <div class="space-y-sm">
+            <div class="position-relative">
+    <input [checked]="PymentSelected()[0]?.select" class="payment-radio-hidden" id="cash" name="payment" type="radio">
+    <label (click)="selectPyment('BOOKING_DETAILS.PAYMENT_CASH')" (click)="checkPyment(PymentSelected()[0].orderUid)" [class.active-payment-card]="PymentSelected()[0]?.select" class="payment-custom-label d-flex align-items-center justify-content-between p-3 border rounded-4 cursor-pointer transition-all" for="cash">
+        <div class="d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined text-success-custom">payments</span>
+            <span class="fw-semibold">{{ 'BOOKING_DETAILS.PAYMENT_CASH' | translate }}</span>
+        </div>
+
+        <div [class.border-primary]="PymentSelected()[0]?.select" [class.border-secondary-custom]="!PymentSelected()[0]?.select" class="radio-indicator rounded-circle border border-2 d-flex align-items-center justify-content-center">
+            @if (PymentSelected()[0]?.select) {
+                <div class="radio-dot rounded-circle"></div>
+            }
+        </div>
+    </label>
+</div>
+
+<div class="position-relative mt-2">
+    <input [checked]="PymentSelected()[1]?.select" class="payment-radio-hidden" id="credit" name="payment" type="radio">
+    <label (click)="selectPyment('BOOKING_DETAILS.PAYMENT_CREDIT')" (click)="checkPyment(PymentSelected()[1].orderUid)" [class.active-payment-card]="PymentSelected()[1]?.select" class="payment-custom-label d-flex align-items-center justify-content-between p-3 border rounded-4 cursor-pointer transition-all" for="credit">
+        <div class="d-flex align-items-center gap-2">
+            <span class="material-symbols-outlined text-primary">credit_card</span>
+            <span class="fw-semibold">{{ 'BOOKING_DETAILS.PAYMENT_CREDIT' | translate }}</span>
+        </div>
+
+        <div [class.border-primary]="PymentSelected()[1]?.select" [class.border-secondary-custom]="!PymentSelected()[1]?.select" class="radio-indicator rounded-circle border border-2 d-flex align-items-center justify-content-center">
+            @if (PymentSelected()[1]?.select) {
+                <div class="radio-dot rounded-circle"></div>
+            }
+        </div>
+    </label>
+</div>
+        </div>
+    </section>
+
+    <section class="mt-4 bg-surface-container-high p-3 rounded-4 space-y-sm">
+        <div class="d-flex justify-content-between align-items-center text-secondary small">
+            <span>{{ 'BOOKING_DETAILS.FEE_INSPECTION' | translate }}</span>
+            <span>{{showser().price}} EGP</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-center text-dark fw-bold pt-2 border-top border-secondary-light">
+            <span>{{ 'BOOKING_DETAILS.TOTAL_ESTIMATED' | translate }}</span>
+            <span>{{ showser().price }} EGP</span>
+        </div>
+        <p class="text-xxs text-secondary leading-tight mt-2 mb-0">{{ 'BOOKING_DETAILS.PRICE_NOTE' | translate }}</p>
+    </section>
+
+@if (showser().visit === 'ser') {
+        <div class="pt-3 mb-5">
+        <button (click)="Navigation()" (click)="addLocate()" (click)="pay()" (click)="UpdateOrder(); visitCount()" class="btn bg-primary text-white w-100 py-3 rounded-3 fw-bold shadow d-flex align-items-center justify-content-center gap-2 transition-all action-scale">
+          @if (!loading()) {
+                        {{ 'BOOKING_DETAILS.BTN_CONFIRM' | translate }}
+            <span class="material-symbols-outlined">check_circle</span>
+          }@else {
+            <span class="spinner-border  text-light" role="status" aria-hidden="true"></span>
+          }
+        </button>
+    </div>
+}@else if (showser().visit === 'card') {
+        <div class="pt-3 mb-5">
+        <button (click)="Navigation()" (click)="addLocate()" (click)="pay()" (click)="UpdateOrder(); carrirCount()" class="btn bg-primary text-white w-100 py-3 rounded-3 fw-bold shadow d-flex align-items-center justify-content-center gap-2 transition-all action-scale">
+          @if (!loading()) {
+                        {{ 'BOOKING_DETAILS.BTN_CONFIRM' | translate }}
+            <span class="material-symbols-outlined">check_circle</span>
+          }@else {
+            <span class="spinner-border  text-light" role="status" aria-hidden="true"></span>
+          }
+        </button>
+    </div>
+}@else{
+        <div class="pt-3 mb-5">
+        <button (click)="Navigation()" (click)="addLocate()" (click)="pay()" (click)="UpdateOrder();" class="btn bg-primary text-white w-100 py-3 rounded-3 fw-bold shadow d-flex align-items-center justify-content-center gap-2 transition-all action-scale">
+          @if (!loading()) {
+                        {{ 'BOOKING_DETAILS.BTN_CONFIRM' | translate }}
+            <span class="material-symbols-outlined">check_circle</span>
+          }@else {
+            <span class="spinner-border  text-light" role="status" aria-hidden="true"></span>
+          }
+        </button>
+    </div>
+}
+
+<button>hello</button>
+
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+@for (loc of ShowLocation(); track $index) {
+      <div class="modal-body">
+        <div class="d-flex">
+
+          <div class=" d-flex cart-loc border" (click)="selectLocation(loc)" (click)="CheckLoc(LocSelected()[$index].orderUid)" [class.GamedGdan]="LocSelected()[$index]?.select">
+
+            <!-- ////////Det???????? -->
+                <ul>
+            <li>Name : Ahmed Mohmed </li>
+            <li>Phone : 01025260405 </li>
+            <li>Date : {{loc.Date}} </li>
+                </ul>
+            <!-- ///// Address0 -->
+          <ul class="">
+            <li>Compound : {{loc.Compound}}</li>
+            <li>Billding : {{loc.Building}}</li>
+            <li>Unit : {{loc.Unit}} </li>
+        </ul>
+
+          </div>
+        </div>
+      </div>
+}
+
+      <div class="modal-footer">
+        <button (click)="saveSelectedLocation()" class="btn bg-them" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Select</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</main>
+
+}@else{
+
+}
+
+}@else {
+      <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border rounded-4 shadow-sm p-3 bg-light">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">إتمام عملية الدفع</h5>
+                        <button (click)="iframeUrl.set(null)" class="btn btn-sm btn-close"></button>
+                    </div>
+                    <iframe
+                        [src]="iframeUrl()"
+                        width="100%"
+                        height="500px"
+                        frameborder="0"
+                        class="rounded-3">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    }
+

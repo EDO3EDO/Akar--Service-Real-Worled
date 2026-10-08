@@ -1,0 +1,244 @@
+@if (IsLoding()) {
+
+  <body class=" user-select-none overflow-hidden min-vh-100 d-flex flex-column justify-content-between align-items-center p-4 position-relative">
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <!-- Top Minimalist Status / Brand Tag -->
+  <!-- Central Loading Experience -->
+  <main class="w-100 main-container d-flex flex-column align-items-center justify-content-center my-auto">
+    <!-- Brand Emblem with Animated Halo & Spinner -->
+    <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+      <!-- Ambient Outer Pulse Glow -->
+      <div class="pulse-halo position-absolute rounded-4 bg-primary-subtle"></div>
+      <div class="spinner-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div class="icon-card position-absolute bg-white rounded-4 shadow-sm border d-flex align-items-center justify-content-center animate-icon-float">
+          <div class="icon-bg rounded-3 bg-primary d-flex align-items-center justify-content-center p-2">
+            <span class="material-symbols-outlined text-white fs-2">home_work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smooth Progress Bar Container -->
+    <div class="progress-track bg-light rounded-pill overflow-hidden position-relative mb-3 border">
+      <div class="progress-bar-fill animate-progress rounded-pill"></div>
+    </div>
+  </main>
+</body>
+}@else {
+
+@if (showData()?.supscription?.status !== 'active') {
+    <main class="pb-5  mb-5">
+        <section class="container mt-4">
+            <div class="hero-gradient text-white rounded-4 overflow-hidden position-relative p-4 p-md-5 shadow">
+                <div class="hero-bg-overlay position-absolute inset-0 opacity-25" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHQmJGO2zyIpps-mwRLWM5IeFP_AwJ4OzmvdKi5TRGnYSW-4Mh-C1V2t8SnYfoaBQQRAgTPpi_HPN-gHvBmotndyGoSw0utHlWgXFbFCwRGDTCSd2UqOW3rQHje1yvJbvEkfMe2SI_OMv_CGk3R0OdmZi3qYuAzHMxI9bCDelbVhTIFSilEtpLfbUJ__ArurgqbSC1bq7YhrRbSDcHnTbnDslTDBdD7nATiaRZxEi5NtE7UHDCqtou')"></div>
+                <div class="position-relative z-1 max-w-2xl">
+                    <h2 class="display-6 fw-bold mb-3">{{ 'MAINTENANCE_PLANS.HERO_TITLE' | translate }}</h2>
+                    <p class="fs-5 text-light opacity-90 mb-0">
+                        {{ 'MAINTENANCE_PLANS.HERO_DESC' | translate }}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mt-4 text-center">
+            <div class="inline-flex bg-white p-1 rounded-pill border shadow-sm d-inline-flex">
+                <button routerLink="/client/sup/supmonth" routerLinkActive="active activate" class="btn btn-light rounded-pill px-4 py-2 fw-bold small" id="monthlyBtn">{{ 'MAINTENANCE_PLANS.TOGGLE_MONTHLY' | translate }}</button>
+                <button routerLink="/client/sup/supyear" routerLinkActive="active activate" class="btn btn-light rounded-pill px-4 py-2 fw-bold text-muted small" id="yearlyBtn">{{ 'MAINTENANCE_PLANS.TOGGLE_YEARLY' | translate }} <span class=" ms-1">{{ 'MAINTENANCE_PLANS.DISCOUNT_YEARLY' | translate }}</span></button>
+            </div>
+        </section>
+        <router-outlet></router-outlet>
+    </main>
+}
+<!-- ////////////////......... if status === active -->
+
+@else if (showData()?.supscription?.status === 'active') {
+
+<body class="bg-surface">
+    <!-- Main Content -->
+    <main class="main-content container py-4">
+        <div class="row g-3">
+
+            <!-- Card 1: Active Package Summary (Full Width on all screens) -->
+            <div class="col-12">
+                <div class="card card-gradient text-white p-3 p-md-4 border-0 shadow-sm rounded-4">
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+                        <div class="d-flex flex-column gap-1">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="pulse-dot bg-secondary-fixed rounded-circle"></span>
+                                <span class="badge bg-secondary-container text-on-secondary-container rounded-pill px-2 py-1 fs-7">نشطة</span>
+                                <span class="small text-on-primary-container">الباقة السنوية المتقدمة</span>
+                            </div>
+                        </div>
+                        <div class="text-sm-start border-top border-sm-0 pt-2 pt-sm-0 border-white-50">
+                            <span class="small text-on-primary-container d-block">الصلاحية</span>
+                            <span class="small fw-semibold text-white">حتى {{ showData()?.supscription?.endDate | date:'MMMM yyyy':'':'ar' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: General Visits -->
+            <div class="col-12 col-lg-6">
+                <div class="card bg-surface-lowest p-3 border-outline shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between gap-3">
+                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box bg-primary-fixed text-primary rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
+                                <span class="material-symbols-outlined fs-4">home_repair_service</span>
+                            </div>
+                            <div>
+                                <h3 class="h6 mb-0 fw-semibold text-on-surface">الزيارات العامة</h3>
+                                <span class="small text-muted">إجمالي الزيارات المعتمدة بالباقة</span>
+                            </div>
+                        </div>
+                        <span class="badge bg-surface-container-low text-primary rounded-pill px-2 py-1 fw-bold">إجمالي: 4 زيارات</span>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="bg-surface-container-low rounded-3 p-3 text-center text-sm-start">
+                                <span class="small text-muted d-block mb-1">الرصيد المتبقي</span>
+                                <div class="d-flex align-items-baseline justify-content-center justify-content-sm-start gap-1">
+                                    <span class="display-6 fw-bold text-primary">{{this.showData()?.supscription?.usage?.freeVisits}}</span>
+                                    <span class="small text-muted">زيارات متاحة</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-surface-container-low rounded-3 p-3 text-center text-sm-start">
+                                <span class="small text-muted d-block mb-1">تم استهلاك</span>
+                                <div class="d-flex align-items-baseline justify-content-center justify-content-sm-start gap-1">
+                                    <span class="display-6 fw-bold text-on-surface">{{this.showData()?.supscription?.history?.freeVisitsHistory}}</span>
+                                    <span class="small text-muted">زيارات سابقة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-1">
+                        <div class="progress custom-progress" role="progressbar" aria-valuenow="66.6" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-primary" [style.width.%]="visitsRemainingProgress()"></div>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>تم استخدام {{this.showData()?.supscription?.history?.freeVisitsHistory}} من أصل 4</span>
+                            <span>متبقي {{visitsRemainingProgress()}}% من الرصيد</span>
+                        </div>
+                    </div>
+
+                    <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-primary w-100 py-2 rounded-3 fw-medium d-flex align-items-center justify-content-center gap-2 shadow-sm" id="requestVisitBtn">
+                        <span class="material-symbols-outlined fs-5">add_circle</span>
+                        <span>طلب زيارة</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: AC Maintenance -->
+            <div class="col-12 col-lg-6">
+                <div class="card bg-surface-lowest p-3 border-outline shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between gap-3">
+                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box bg-secondary-container text-on-secondary-container rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
+                                <span class="material-symbols-outlined fs-4">mode_fan</span>
+                            </div>
+                            <div>
+                                <h3 class="h6 mb-0 fw-semibold text-on-surface">صيانة التكييف</h3>
+                                <span class="small text-muted">صيانة وتنظيف أجهزة التكييف</span>
+                            </div>
+                        </div>
+                        <span class="badge bg-surface-container-low text-secondary rounded-pill px-2 py-1 fw-bold">إجمالي: 2 مكيفات</span>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="bg-surface-container-low rounded-3 p-3 text-center text-sm-start">
+                                <span class="small text-muted d-block mb-1">المتبقي للصيانة</span>
+                                <div class="d-flex align-items-baseline justify-content-center justify-content-sm-start gap-1">
+                                    <span class="display-6 fw-bold text-secondary">{{this.showData()?.supscription?.usage?.acMaintenanceCount}}</span>
+                                    <span class="small text-muted">مكيف متبقي</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-surface-container-low rounded-3 p-3 text-center text-sm-start">
+                                <span class="small text-muted d-block mb-1">تمت صيانتها</span>
+                                <div class="d-flex align-items-baseline justify-content-center justify-content-sm-start gap-1">
+                                    <span class="display-6 fw-bold text-on-surface">{{this.showData()?.supscription?.history?.acMaintenanceCountHistory}}</span>
+                                    <span class="small text-muted">مكيف تم فحصه</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-1">
+                        <div class="progress custom-progress" role="progressbar" aria-valuenow="66.6" aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-secondary" [style.width.%]="CarrirRemainingProgress()"></div>
+                        </div>
+                        <div class="d-flex justify-content-between small text-muted">
+                            <span>تمت صيانة {{this.showData()?.supscription?.history?.acMaintenanceCountHistory}} من أصل 2</span>
+                            <span>متبقي {{CarrirRemainingProgress()}}% من الرصيد</span>
+                        </div>
+                    </div>
+
+                  @for(data of showSer(); track $index) {
+                      <button (click)="selectSer(data.id , data.name , data.icon , 'card'); Selected()" class="btn btn-surface-high text-primary w-100 py-2 rounded-3 fw-medium d-flex align-items-center justify-content-center gap-2" id="bookAcBtn">
+                        <span class="material-symbols-outlined fs-5">calendar_today</span>
+                        <span>حجز صيانة تكييف</span>
+                    </button>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+}
+
+
+
+
+<!-- //////.... creat service -->
+
+
+
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+
+    <!-- Services Section -->
+    <section class="mb-4">
+        <div class="row g-3 p-5">
+
+          @for (data of showSer(); track $index) {
+            <div class="col-6">
+                <div (click)="selectSer(data.id , data.name , data.icon , 'ser')" (click)="check(orderSelected()[0].orderUid)" [class.Gamed]="orderSelected()[0].select" class="category-card p-3 rounded-4 bg-white border d-flex flex-column align-items-center text-center">
+                    <div class="icon-wrapper rounded-circle bg-light d-flex align-items-center justify-content-center text-primary mb-2">
+                        <span class="material-symbols-outlined fs-3">electrical_services</span>
+                    </div>
+                    <span class="small fw-semibold text-secondary">{{ 'Electricity' | translate }}</span>
+                </div>
+            </div>
+          }
+
+        </div>
+  </section>
+
+
+      <div class="modal-footer">
+        <button (click)="Selected()" class="btn btn-primary w-100" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Select</button>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,97 @@
+@if (IsLoding()) {
+
+  <body class=" user-select-none overflow-hidden min-vh-100 d-flex flex-column justify-content-between align-items-center p-4 position-relative">
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <!-- Top Minimalist Status / Brand Tag -->
+  <!-- Central Loading Experience -->
+  <main class="w-100 main-container d-flex flex-column align-items-center justify-content-center my-auto">
+    <!-- Brand Emblem with Animated Halo & Spinner -->
+    <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+      <!-- Ambient Outer Pulse Glow -->
+      <div class="pulse-halo position-absolute rounded-4 bg-primary-subtle"></div>
+      <div class="spinner-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div class="icon-card position-absolute bg-white rounded-4 shadow-sm border d-flex align-items-center justify-content-center animate-icon-float">
+          <div class="icon-bg rounded-3 bg-primary d-flex align-items-center justify-content-center p-2">
+            <span class="material-symbols-outlined text-white fs-2">home_work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smooth Progress Bar Container -->
+    <div class="progress-track bg-light rounded-pill overflow-hidden position-relative mb-3 border">
+      <div class="progress-bar-fill animate-progress rounded-pill"></div>
+    </div>
+  </main>
+</body>
+}@else {
+
+<main class="container-fluid px-3 px-sm-4 px-md-5 max-w-2xl mx-auto pt-4 pt-md-5 mt-2 mt-md-4 pb-5 mb-5">
+
+    @for (item of ShowLocation(); track $index) {
+        <section class="mb-4">
+            <h2 class="h6 text-secondary mb-3 fw-bold">{{ 'ADDRESSES.SECTION_SAVED' | translate }}</h2>
+            <div class="d-grid gap-3">
+                <div class="address-card p-3 p-md-4 rounded-3 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 border bg-white shadow-sm">
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="address-icon bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center flex-shrink-0">
+                            <span class="material-symbols-outlined">home</span>
+                        </div>
+                        <div>
+                            <h3 class="h6 m-0 fw-bold text-dark">{{ 'ADDRESSES.LABEL_HOME' | translate }}</h3>
+                            <p class="small text-muted m-0">{{'ADDRESSES.FIELD_AREA' | translate}} : {{item.Compound}} , {{'ADDRESSES.FIELD_BUILDING' | translate}} : {{item.Building}} , {{'ADDRESSES.FIELD_UNIT' | translate}} : {{item.Unit}}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-1 align-self-end align-self-sm-center">
+                        <button (click)="deleteLoc(item.id)" type="button" class="btn btn-link text-danger p-1 border-0">
+                            <span class="material-symbols-outlined fs-5">delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    <hr class="my-4 text-muted opacity-25">
+
+    <section class="mb-5">
+        <div class="d-flex align-items-center gap-2 text-primary mb-3">
+            <span class="material-symbols-outlined fs-3">location_on</span>
+            <h2 class="h5 m-0 fw-bold">{{ 'ADDRESSES.SECTION_ADD_NEW' | translate }}</h2>
+        </div>
+
+        <form class="d-grid gap-3" >
+            <div>
+                <label for="areaInput" class="form-label small text-muted ms-1">{{ 'ADDRESSES.FIELD_AREA' | translate }}</label>
+                <input type="text" [value]="mainloc().Compound" (input)="newCompound($event.target.value)" class="form-control" id="areaInput" [placeholder]="'ADDRESSES.PLACEHOLDER_AREA' | translate">
+            </div>
+
+            <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                    <label for="buildingInput" class="form-label small text-muted ms-1">{{ 'ADDRESSES.FIELD_BUILDING' | translate }}</label>
+                    <input type="text" [value]="mainloc().Building" (input)="newBuilding($event.target.value)" class="form-control text-center" id="buildingInput" placeholder="00">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label for="unitInput" class="form-label small text-muted ms-1">{{ 'ADDRESSES.FIELD_UNIT' | translate }}</label>
+                    <input type="text" [value]="mainloc().Unit"  (input)="newUnit($event.target.value)" class="form-control text-center" id="unitInput" placeholder="00">
+                </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div>
+                <label for="landmarkInput" class="form-label small text-muted ms-1">{{ 'ADDRESSES.FIELD_LANDMARK' | translate }}</label>
+                <textarea class="form-control" id="landmarkInput" rows="3" [placeholder]="'ADDRESSES.PLACEHOLDER_LANDMARK' | translate"></textarea>
+            </div>
+
+            <!-- Action Button -->
+            <button (click)="addLocate()" type="submit" class="btn btn-primary w-100 rounded-3 py-2 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm mt-2">
+                <span class="material-symbols-outlined">save</span>
+                {{ 'ADDRESSES.BTN_SAVE' | translate }}
+            </button>
+        </form>
+    </section>
+
+</main>
+
+}
+

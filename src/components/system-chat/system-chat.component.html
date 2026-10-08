@@ -1,0 +1,101 @@
+<!-- 1. إخفاء الأيقونة العائمة إذا كنا في صفحة الشات الدائمة -->
+@if (!isEmeded) {
+  <button
+    class="chat-toggle-btn"
+    (click)="toggleChat()"
+    [attr.aria-label]="(isOpen() ? 'CHAT.CLOSE_CHAT' : 'CHAT.OPEN_CHAT') | translate">
+    <span class="material-symbols-outlined">{{ isOpen() ? 'close' : 'chat' }}</span>
+  </button>
+}
+
+<main class="chat-wrapper" [class.open]="isOpen()" [class.embedded-mode]="isEmeded">
+  <div class="chat-card custom">
+
+    <div class="chat-header">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="d-flex align-items-center gap-2 font-bold fs-5">
+          <span class="material-symbols-outlined fs-5">handyman</span>
+          <span>{{ 'CHAT.SERVICE_NAME' | translate }}</span>
+        </div>
+
+        <!-- 3. إخفاء زر سهم الإغلاق إذا كنا في صفحة الشات الدائمة -->
+        @if (!isEmeded) {
+          <button class="btn-icon text-white" [attr.aria-label]="'CHAT.CLOSE_CHAT' | translate" type="button" (click)="toggleChat()">
+            <span class="material-symbols-outlined">keyboard_arrow_down</span>
+          </button>
+        }
+      </div>
+      <div>
+        <h2 class="fs-6 fw-bold mb-1">{{ 'CHAT.SUPPORT_TITLE' | translate }}</h2>
+        <p class="chat-subtitle mb-0">{{ 'CHAT.RESPONSE_TIME' | translate }}</p>
+      </div>
+    </div>
+
+    <div class="chat-body" #scrollContainer id="chat-messages">
+      @for (msg of systemService.messages(); track msg.id) {
+        <div
+          class="message-group mb-3"
+          [class.is-user]="msg.senderId === currentUserId">
+
+          @if (msg.senderId !== currentUserId) {
+            <div class="d-flex align-items-center gap-2 mb-2 px-1">
+              <div class="avatar-icon">
+                <span class="material-symbols-outlined fs-6">support_agent</span>
+              </div>
+              <span class="sender-name">{{ msg.senderName }}</span>
+            </div>
+          }
+
+          <div class="chat-bubble" [class.user-bubble]="msg.senderId === currentUserId">
+            @if (msg.mediaUrl) {
+              <div class="mb-2 position-relative">
+                <img [src]="msg.mediaUrl" alt="Media" class="img-fluid rounded" loading="lazy" />
+              </div>
+            }
+            @if (msg.text) {
+              <p class="mb-0">{{ msg.text }}</p>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="chat-footer">
+      @if (selectedFile()) {
+        <div class="selected-file-badge mb-2 px-2 py-1 bg-light rounded d-flex align-items-center justify-content-between fs-7">
+          <span class="text-truncate">{{ selectedFile()?.name }}</span>
+          <button type="button" class="btn-close ms-2" style="font-size: 0.65rem;" (click)="selectedFile.set(null)" [disabled]="isUploading()"></button>
+        </div>
+      }
+
+      <div class="input-container">
+        <input
+          type="text"
+          id="chat-input-field"
+          class="form-control border-0 shadow-none bg-transparent"
+          [placeholder]="'CHAT.INPUT_PLACEHOLDER' | translate"
+          autocomplete="off"
+          [ngModel]="newMessage()"
+          (ngModelChange)="newMessage.set($event)"
+          (keyup.enter)="send()"
+          [disabled]="isUploading()">
+
+        <div class="d-flex align-items-center gap-1 action-buttons">
+          <label class="btn-icon m-0 cursor-pointer" [attr.aria-label]="'CHAT.ATTACH_FILE' | translate">
+            <span class="material-symbols-outlined">attach_file</span>
+            <input type="file" (change)="onFileSelected($event)" accept="image/*" hidden [disabled]="isUploading()">
+          </label>
+
+          <button class="btn-icon btn-send" id="send-msg-btn" [attr.aria-label]="'CHAT.SEND' | translate" type="button" (click)="send()" [disabled]="isUploading()">
+            @if (isUploading()) {
+              <span class="spinner-border spinner-border-sm" role="status"></span>
+            } @else {
+              <span class="material-symbols-outlined flip-icon">send</span>
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

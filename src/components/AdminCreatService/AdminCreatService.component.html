@@ -1,0 +1,168 @@
+<main class="py-5 px-3 px-lg-4">
+  <div class="container-fluid max-w-7xl mx-auto">
+
+    <div class="row g-4 align-items-start">
+
+      <!-- جدول عرض الخدمات -->
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 p-4 p-sm-5 shadow-xs border">
+          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+            <div>
+              <h3 class="h5 fw-bold text-dark mb-1">الخدمات الحالية في Akar Service</h3>
+              <p class="text-muted fs-sm mb-0">عرض وتحديث جميع الخدمات المسجلة ومتابعة جاهزية الفنيين</p>
+            </div>
+          </div>
+
+          <!-- Services List Table -->
+          <div class="table-responsive">
+            <table class="table align-middle text-right fs-sm mb-0">
+              <thead class="table-light text-muted fw-semibold">
+                <tr>
+                  <th class="py-3 px-3">الخدمة / القسم</th>
+                  <th class="py-3 px-3">السعر الرسمي</th>
+                  <th class="py-3 px-3">الحالة</th>
+                  <th class="py-3 px-3 text-center rounded-end-3">إجراءات سريعة</th>
+                </tr>
+              </thead>
+              <tbody class="border-top-0">
+                @for (s of services(); track s.id) {
+                  <tr>
+                    <td class="py-3 px-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="material-symbols-outlined text-primary fs-5">{{ s.icon }}</span>
+                        <div>
+                          <span class="fw-bold text-dark d-block">{{ s.name }}</span>
+                          <span class="badge bg-light text-secondary border fw-normal fs-xs">{{ s.code }}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3 px-3 fw-bold text-dark">
+                      {{ s.price }} <span class="fw-normal text-muted fs-xs">ج.م (يبدأ من)</span>
+                    </td>
+                    <td class="py-3 px-3">
+                      <span [ngClass]="s.isActive ? 'bg-success-subtle text-success' : 'bg-warning-subtle text-warning'" class="badge d-inline-flex align-items-center gap-1 px-2.5 py-1.5 rounded-pill fw-bold">
+                        <span [ngClass]="s.isActive ? 'bg-success' : 'bg-warning'" class="w-1.5 h-1.5 rounded-circle"></span>
+                        {{ s.isActive ? 'نشط' : 'متوقف' }}
+                      </span>
+                    </td>
+                    <td class="py-3 px-3 text-center">
+                      <div class="d-inline-flex align-items-center gap-1">
+                        <button class="btn btn-sm btn-light text-secondary p-1.5 rounded-2" title="تعديل الخدمة" (click)="onEdit(s)">
+                          <span class="material-symbols-outlined fs-5">edit</span>
+                        </button>
+                        <button class="btn btn-sm btn-light text-secondary p-1.5 rounded-2" title="تغيير الحالة" (click)="onToggleStatus(s)">
+                          <span class="material-symbols-outlined fs-5">{{ s.isActive ? 'pause_circle' : 'play_circle' }}</span>
+                        </button>
+                        <button class="btn btn-sm btn-light text-danger p-1.5 rounded-2" title="حذف" (click)="onDelete(s.id)">
+                          <span class="material-symbols-outlined fs-5">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- نموذج إضافة / تعديل خدمة -->
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 p-4 p-sm-5 shadow-xs border">
+          <div class="d-flex align-items-center justify-content-between pb-3 mb-4 border-bottom">
+            <div>
+              <!-- استخدام @if الحديث للتحقق من متغير الحالة (كمثال: isEditing() كـ Signal) -->
+              <h2 class="h5 fw-bold text-dark mb-1">
+                @if (isEditing()) {
+                  تعديل بيانات الخدمة
+                } @else {
+                  إضافة خدمة صيانة جديدة
+                }
+              </h2>
+              <p class="text-muted fs-sm mb-0">أدخل البيانات والمواصفات لإدراج خدمة فورية على منصة وتطبيق Akar Service</p>
+            </div>
+            <span class="badge bg-light text-primary border rounded-pill px-3 py-2 fs-xs">
+              {{ isEditing() ? 'وضع التعديل' : 'خطوة واحدة بسيطة' }}
+            </span>
+          </div>
+
+          <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+
+            <!-- Code & Name Section -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="srv-id" class="form-label fs-sm fw-semibold text-dark">
+                  كود الخدمة المخصص (Service ID) <span class="text-danger">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control rounded-3 py-2.5 fs-sm" id="srv-id" formControlName="code" placeholder="مثال: SRV-ELEC-01" dir="ltr" required>
+                  <span class="input-group-text bg-light rounded-3 text-muted border-start-0">
+                    <span class="material-symbols-outlined fs-5">tag</span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="srv-name" class="form-label fs-sm fw-semibold text-dark">
+                  اسم الخدمة <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control rounded-3 py-2.5 fs-sm" id="srv-name" formControlName="name" placeholder="مثال: الكهرباء" required>
+              </div>
+            </div>
+
+            <!-- Price & Icon Section -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="srv-price" class="form-label fs-sm fw-semibold text-dark">
+                  سعر الخدمة <span class="text-danger">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="number" class="form-control rounded-3 py-2.5 fs-sm ps-5" id="srv-price" formControlName="price" placeholder="250" required>
+                  <span class="position-absolute start-0 top-50 translate-middle-y ms-3 z-3 fw-bold text-muted fs-sm select-none">ج.م</span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="srv-icon" class="form-label fs-sm fw-semibold text-dark">
+                  أيقونة جوجل (Icon) <span class="text-danger">*</span>
+                </label>
+                <div class="input-group">
+                  <input type="text" class="form-control rounded-3 py-2.5 fs-sm" id="srv-icon" formControlName="icon" placeholder="مثال: bolt أو ac_unit" required>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service Status & Availability Toggle -->
+            <div class="bg-light p-3 rounded-3 d-flex align-items-center justify-content-between mb-4 border">
+              <div class="d-flex align-items-center gap-3">
+                <div class="w-10 h-10 rounded-3 bg-success-subtle text-success d-flex align-items-center justify-content-center">
+                  <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div>
+                  <div class="fs-sm fw-bold text-dark">تفعيل الخدمة فوراً</div>
+                  <div class="fs-xs text-muted">ستتاح الخدمة فور الضغط على حفظ في قائمة الخدمات المتاحة للطلب بالتطبيق</div>
+                </div>
+              </div>
+              <div class="form-check form-switch fs-4">
+                <input class="form-check-input cursor-pointer" type="checkbox" role="switch" id="srv-active" formControlName="isActive">
+              </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-end gap-2 pt-2">
+              <button type="button" class="btn btn-light w-100 w-sm-auto px-4 py-2.5 rounded-3 fs-sm fw-semibold" id="reset-form-btn" (click)="onReset()">
+                {{ isEditing() ? 'إلغاء التعديل' : 'تفريغ الحقول' }}
+              </button>
+              <button type="submit" class="btn btn-primary w-100 w-sm-auto px-5 py-2.5 rounded-3 fs-sm fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2" id="submit-service-btn">
+                <span class="material-symbols-outlined fs-5">save</span>
+                {{ isEditing() ? 'تحديث الخدمة' : 'حفظ وإضافة الخدمة' }}
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

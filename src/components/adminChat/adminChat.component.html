@@ -1,0 +1,198 @@
+<div class="main-wrapper">
+  <main class="main-content">
+
+    <div class="row g-3 h-100 align-items-stretch">
+
+      <!-- 1. قائمة المحادثات (العمود الأيمن) -->
+      <div class="col-12 col-md-5 col-xl-4 d-flex flex-column h-100">
+        <div class="chat-list-panel flex-grow-1">
+
+          <div class="p-3 bg-surface-low-60 d-flex flex-column gap-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center gap-2">
+                <span class="fw-bold fs-5">المحادثات</span>
+                <span class="badge badge-custom bg-primary-fixed text-primary">
+                  {{ adminChatService.chatsList().length }}
+                </span>
+              </div>
+              <button class="btn-icon-sm" title="تصفية متقدمة">
+                <span class="material-symbols-outlined fs-6">filter_list</span>
+              </button>
+            </div>
+
+            <div class="search-box w-100 bg-white">
+              <span class="material-symbols-outlined text-muted fs-6">search</span>
+              <input type="text" class="form-control border-0 bg-transparent shadow-none p-0 extra-small" placeholder="البحث في المحادثات...">
+            </div>
+
+            <div class="d-flex gap-1 overflow-auto pb-1">
+              <button class="btn btn-sm btn-primary py-1 px-3 rounded-2 extra-small fw-bold whitespace-nowrap">الكل</button>
+              <button class="btn btn-sm btn-light py-1 px-3 rounded-2 extra-small whitespace-nowrap">جديدة</button>
+              <button class="btn btn-sm btn-light py-1 px-3 rounded-2 extra-small whitespace-nowrap">قيد المتابعة</button>
+            </div>
+          </div>
+
+          <div class="flex-grow-1 overflow-y-auto divide-y">
+            @for (chat of adminChatService.chatsList(); track chat.userUid) {
+              <div
+                class="chat-item p-3 d-flex gap-3"
+                [class.active]="chat.userUid === adminChatService.selectedUserUid()"
+                (click)="selectUserChat(chat.userUid)">
+
+                <div class="position-relative flex-shrink-0">
+                  <div class="avatar avatar-lg bg-primary-fixed text-primary fw-bold">
+                    {{ chat.userName ? chat.userName.substring(0, 2) : 'عميل' }}
+                  </div>
+                  <span class="status-indicator position-absolute bottom-0 start-0 border border-2 border-white"></span>
+                </div>
+
+                <div class="flex-grow-1 min-w-0">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="fw-bold small text-truncate">{{ chat.userName }}</span>
+                    <span class="extra-small text-muted">الآن</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="extra-small text-muted text-truncate">{{ chat.lastMessage }}</span>
+                    @if (chat.unreadByAdminCount > 0) {
+                      <span class="badge bg-primary rounded-circle badge-circle">{{ chat.unreadByAdminCount }}</span>
+                    }
+                  </div>
+                </div>
+
+              </div>
+            } @empty {
+              <div class="p-4 text-center text-muted extra-small">لا توجد محادثات حتي الآن</div>
+            }
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2. نافذة المحادثة المفتوحة (العمود الأيسر) -->
+      <div class="col-12 col-md-7 col-xl-8 d-flex flex-column h-100">
+        <div class="chat-window-panel flex-grow-1">
+          @if (adminChatService.selectedUserUid()) {
+            <!-- Chat Header -->
+            <div class="p-3 bg-surface-low-60 d-flex align-items-center justify-content-between border-bottom">
+              <div class="d-flex align-items-center gap-3">
+                <div class="position-relative">
+                  <div class="avatar avatar-lg bg-primary-fixed text-primary fw-bold">عميل</div>
+                  <span class="status-indicator position-absolute bottom-0 start-0 border border-2 border-white"></span>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold">محادثة العميل</span>
+                    <span class="badge bg-primary-fixed text-primary extra-small">{{ adminChatService.selectedUserUid() }}</span>
+                  </div>
+                  <span class="extra-small text-muted">متصل الآن</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-2">
+                <button class="btn-icon-sm text-primary" title="اتصال بالعميل"><span class="material-symbols-outlined fs-6">call</span></button>
+                <button class="btn-icon-sm" title="تحويل التذكرة"><span class="material-symbols-outlined fs-6">forward_to_inbox</span></button>
+                <button class="btn-icon-sm" title="خيارات إضافية"><span class="material-symbols-outlined fs-6">more_vert</span></button>
+                <button class="btn btn-danger-soft btn-sm d-flex align-items-center gap-1 extra-small fw-bold">
+                  <span class="material-symbols-outlined fs-6">check_circle</span>إغلاق التذكرة
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat Messages Body -->
+            <div class="chat-body" #scrollContainer>
+              @for (msg of adminChatService.activeMessages(); track msg.id) {
+                <div
+                  class="message-group mb-3 d-flex flex-column"
+                  [class.align-items-end]="msg.isAdminResponse"
+                  [class.align-items-start]="!msg.isAdminResponse">
+
+                  <div
+                    class="chat-bubble p-3 rounded-3 max-w-75"
+                    [class.bg-primary]="msg.isAdminResponse"
+                    [class.text-white]="msg.isAdminResponse"
+                    [class.bg-white]="!msg.isAdminResponse"
+                    [class.shadow-sm]="!msg.isAdminResponse">
+
+                    @if (msg.mediaUrl) {
+                      <div class="mb-2">
+                        <img [src]="msg.mediaUrl" alt="Media" class="img-fluid rounded chat-media-img" loading="lazy" />
+                      </div>
+                    }
+                    @if (msg.text) {
+                      <p class="mb-0 extra-small">{{ msg.text }}</p>
+                    }
+                  </div>
+                </div>
+              } @empty {
+                <div class="d-flex flex-column align-items-center justify-content-center h-100 text-center py-5">
+                  <div class="empty-icon-box mb-3">
+                    <span class="material-symbols-outlined fs-3 text-muted">chat_bubble_outline</span>
+                  </div>
+                  <span class="fw-bold fs-5 mb-1">لا توجد رسائل سابقة</span>
+                  <p class="text-muted small max-w-xs mb-0">ابدأ المحادثة الآن مع العميل أو استخدم الردود السريعة أدناه لتسريع الاستجابة.</p>
+                </div>
+              }
+            </div>
+
+            <!-- Chat Input Box -->
+            <div class="p-3 bg-white border-top">
+              @if (selectedFile()) {
+                <div class="selected-file-badge mb-2 px-2 py-1 bg-light rounded d-flex align-items-center justify-content-between extra-small">
+                  <span class="text-truncate">{{ selectedFile()?.name }}</span>
+                  <button type="button" class="btn-close ms-2" style="font-size: 0.65rem;" (click)="selectedFile.set(null)" [disabled]="isUploading()"></button>
+                </div>
+              }
+
+              <div class="chat-input-container">
+                <textarea
+                  class="form-control border-0 bg-transparent shadow-none p-1 extra-small"
+                  rows="2"
+                  placeholder="اكتب ردك للعميل، أو اكتب / لاستخدام قوالب الردود..."
+                  [ngModel]="newMessage()"
+                  (ngModelChange)="newMessage.set($event)"
+                  (keyup.enter)="send()"
+                  [disabled]="isUploading()"></textarea>
+
+                <div class="d-flex align-items-center justify-content-between pt-2">
+                  <div class="d-flex align-items-center gap-1">
+                    <label class="btn-icon-sm border-0 bg-transparent cursor-pointer m-0" title="إرفاق ملف أو صورة">
+                      <span class="material-symbols-outlined fs-6">attach_file</span>
+                      <input type="file" (change)="onFileSelected($event)" accept="image/*" hidden [disabled]="isUploading()">
+                    </label>
+                    <button class="btn-icon-sm border-0 bg-transparent" title="إضافة رمز تعبيري"><span class="material-symbols-outlined fs-6">sentiment_satisfied</span></button>
+                    <button class="btn btn-sm text-muted hover-tertiary d-flex align-items-center gap-1 extra-small border-0 bg-transparent" title="تحويل إلى ملاحظة داخلية">
+                      <span class="material-symbols-outlined fs-6">lock_open</span>ملاحظة داخلية
+                    </button>
+                  </div>
+
+                  <button
+                    class="btn btn-primary btn-sm rounded-3 d-flex align-items-center gap-2 px-3 fw-bold"
+                    (click)="send()"
+                    [disabled]="isUploading()">
+                    <span>إرسال</span>
+                    @if (isUploading()) {
+                      <span class="spinner-border spinner-border-sm" role="status"></span>
+                    } @else {
+                      <span class="material-symbols-outlined fs-6 btn-send-icon">send</span>
+                    }
+                  </button>
+                </div>
+              </div>
+            </div>
+          } @else {
+            <!-- Empty Selected State -->
+            <div class="d-flex flex-column align-items-center justify-content-center h-100 text-center p-5">
+              <div class="empty-icon-box mb-3">
+                <span class="material-symbols-outlined fs-2 text-muted">forum</span>
+              </div>
+              <span class="fw-bold fs-5 mb-1">اختر محادثة</span>
+              <p class="text-muted small mb-0">يرجى اختيار محادثة من القائمة الجانبية لبدء المراسلة.</p>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>

@@ -1,0 +1,362 @@
+/* Color Variables based on Material Theme */
+:root {
+    --bg-background: #f8f9ff;
+    --primary-color: #003d9b;
+    --primary-container: #0052cc;
+    --primary-light: #e6eeff;
+    --surface-color: #f8f9ff;
+    --surface-lowest: #ffffff;
+    --text-color: #121c2a;
+    --text-muted: #434654;
+    --border-color: #c3c6d6;
+    --badge-bg: #86f898;
+    --badge-text: #00722f;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+.fill-icon {
+    font-variation-settings: 'FILL' 1;
+}
+
+/* Header Styling */
+.app-header {
+    height: 64px;
+    background-color: var(--surface-color);
+}
+
+
+.text-primary {
+  color: #003d9b !important;
+}
+
+.btn-primary{
+  background-color: #003d9b !important;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Layout Utilities & Media Queries */
+.max-w-2xl {
+    max-width: 672px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .address-card {
+        padding: 1.25rem !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .max-w-2xl {
+        max-width: 720px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .max-w-2xl {
+        max-width: 800px;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .max-w-2xl {
+        max-width: 850px;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    .max-w-2xl {
+        max-width: 900px;
+    }
+}
+
+/* Address Cards */
+.address-card {
+    background-color: var(--surface-lowest);
+    border-color: var(--border-color) !important;
+    transition: border-color 0.2s ease;
+}
+
+.address-card:hover {
+    border-color: rgba(0, 61, 155, 0.4) !important;
+}
+
+.address-icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--primary-light);
+}
+
+/* Forms & Inputs */
+.custom-input {
+    height: 56px;
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+textarea.custom-input {
+    height: auto;
+}
+
+.custom-input:focus {
+    background-color: var(--surface-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+/* Map Container */
+.map-container {
+    height: 192px;
+    border-color: var(--border-color) !important;
+}
+
+.map-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-map-badge {
+    font-weight: 500;
+}
+
+/* Main Save Button */
+.btn-save {
+    height: 56px;
+    background-color: var(--primary-container);
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-save:active {
+    transform: scale(0.98);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    height: 80px;
+    background-color: var(--surface-color);
+    justify-content: space-around;
+}
+
+.small-caps {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.active-tab {
+    background-color: var(--badge-bg);
+    color: var(--badge-text) !important;
+}
+
+
+
+
+/* ///////////////// lodear => css spin ////////// */
+
+:root {
+  --primary-color: #0052cc;
+  --primary-light: #e8f0fe;
+  --primary-container: #eff4ff;
+  --bg-surface: #f8f9ff;
+}
+
+
+.bg-surface {
+  background-color: #f8f9ff;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 340px;
+  transition: max-width 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .main-container { max-width: 480px; }
+}
+
+@media (min-width: 768px) {
+  .main-container { max-width: 580px; }
+}
+
+@media (min-width: 992px) {
+  .main-container { max-width: 680px; }
+}
+
+@media (min-width: 1200px) {
+  .main-container { max-width: 760px; }
+}
+
+@media (min-width: 1400px) {
+  .main-container { max-width: 840px; }
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: rgba(219, 234, 254, 0.6);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-top {
+  top: 15%;
+  right: -100px;
+}
+
+.glow-bottom {
+  bottom: 15%;
+  left: -100px;
+}
+
+@media (min-width: 768px) {
+  .ambient-glow {
+    width: 500px;
+    height: 500px;
+    filter: blur(90px);
+  }
+}
+
+.pulse-halo {
+  width: 144px;
+  height: 144px;
+  filter: blur(20px);
+  animation: pulseGlow 3.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.spinner-wrapper {
+  width: 112px;
+  height: 112px;
+  transition: all 0.3s ease;
+}
+
+.icon-card {
+  inset: 10px;
+  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.12);
+  border-color: #f0f5ff !important;
+}
+
+.icon-bg {
+  width: 52px;
+  height: 52px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .pulse-halo {
+    width: 168px;
+    height: 168px;
+  }
+
+  .spinner-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 240px;
+  height: 6px;
+  border-color: rgba(194, 214, 255, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(to left, #0052cc, #60a5fa);
+}
+
+@media (min-width: 576px) {
+  .progress-track {
+    max-width: 320px;
+    height: 7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .progress-track {
+    max-width: 380px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 992px) {
+  .progress-track {
+    max-width: 420px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progressIndeterminate 1.8s ease-in-out infinite;
+}

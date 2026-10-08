@@ -1,0 +1,101 @@
+@if (IsLoding()) {
+
+  <body class=" user-select-none overflow-hidden min-vh-100 d-flex flex-column justify-content-between align-items-center p-4 position-relative">
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <!-- Top Minimalist Status / Brand Tag -->
+  <!-- Central Loading Experience -->
+  <main class="w-100 main-container d-flex flex-column align-items-center justify-content-center my-auto">
+    <!-- Brand Emblem with Animated Halo & Spinner -->
+    <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+      <!-- Ambient Outer Pulse Glow -->
+      <div class="pulse-halo position-absolute rounded-4 bg-primary-subtle"></div>
+      <div class="spinner-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div class="icon-card position-absolute bg-white rounded-4 shadow-sm border d-flex align-items-center justify-content-center animate-icon-float">
+          <div class="icon-bg rounded-3 bg-primary d-flex align-items-center justify-content-center p-2">
+            <span class="material-symbols-outlined text-white fs-2">home_work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smooth Progress Bar Container -->
+    <div class="progress-track bg-light rounded-pill overflow-hidden position-relative mb-3 border">
+      <div class="progress-bar-fill animate-progress rounded-pill"></div>
+    </div>
+  </main>
+</body>
+}@else {
+
+    <main class="container max-w-mobile px-3 mt-4">
+
+        <section class="bg-white p-4 rounded-4 border shadow-sm position-relative overflow-hidden mb-4 profile-card">
+            <div class="d-flex align-items-center gap-3 position-relative z-1">
+                <div class="position-relative">
+                    <img alt="Ahmed Mohamed" class="avatar-img rounded-circle object-fit-cover border border-2 border-primary-subtle shadow-sm" [src]="userPhoto()">
+                </div>
+                <div class="flex-grow-1">
+                    <h2 class="fw-bold fs-5 text-dark mb-0">{{userName()}}</h2>
+                    <p class="text-secondary small mb-2">{{userEmail()}}</p>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-2 py-1 fw-bold text-xxs">{{ 'PROFILE.BADGE_PREMIUM' | translate }}</span>
+                </div>
+            </div>
+            <div class="position-absolute  rounded-circle bg-primary opacity-10"></div>
+        </section>
+
+        <section class="d-flex flex-column gap-3 mb-4">
+
+            <div class="bg-white rounded-4 border overflow-hidden shadow-sm list-group-custom">
+                <a (click)="EditProfile()" class="d-flex align-items-center justify-content-between p-3 text-decoration-none border-bottom menu-item">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="menu-icon-box rounded-3 bg-light text-primary d-flex align-items-center justify-content-center">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <span class="text-dark fw-medium">{{ 'PROFILE.PERSONAL_INFO' | translate }}</span>
+                    </div>
+                    <span class="material-symbols-outlined text-muted arrow-icon">chevron_left</span>
+                </a>
+                <a (click)="getLocation()" class="d-flex align-items-center justify-content-between p-3 text-decoration-none border-bottom menu-item">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="menu-icon-box rounded-3 bg-light text-primary d-flex align-items-center justify-content-center">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <span class="text-dark fw-medium">{{ 'PROFILE.MY_ADDRESSES' | translate }}</span>
+                    </div>
+                    <span class="material-symbols-outlined text-muted arrow-icon">chevron_left</span>
+                </a>
+
+                <a (click)="getHistory()" class="d-flex align-items-center justify-content-between p-3 text-decoration-none border-bottom menu-item" >
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="menu-icon-box rounded-3 bg-light text-primary d-flex align-items-center justify-content-center">
+                            <span class="material-symbols-outlined">receipt_long</span>
+                        </div>
+                        <span class="text-dark fw-medium">{{ 'PROFILE.ORDER_HISTORY' | translate }}</span>
+                    </div>
+                    <span class="material-symbols-outlined text-muted arrow-icon">chevron_left</span>
+                </a>
+              </div>
+
+            <div class="bg-white rounded-4 custom-margin border overflow-hidden shadow-sm list-group-custom">
+                <a (click)="helpcenter()" class="d-flex align-items-center justify-content-between p-3 text-decoration-none border-bottom menu-item">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="menu-icon-box rounded-3 bg-light text-primary d-flex align-items-center justify-content-center">
+                            <span class="material-symbols-outlined">help</span>
+                        </div>
+                        <span class="text-dark fw-medium">{{ 'PROFILE.HELP_CENTER' | translate }}</span>
+                    </div>
+                    <span class="material-symbols-outlined text-muted arrow-icon">chevron_left</span>
+                </a>
+                <button class="w-100 d-flex align-items-center justify-content-between p-3 bg-danger-subtle border-0 logout-btn">
+                    <div class="d-flex align-items-center gap-3">
+                        <div (click)="SignOut()" class="menu-icon-box rounded-3 bg-white text-danger d-flex align-items-center justify-content-center border">
+                            <span class="material-symbols-outlined">logout</span>
+                        </div>
+                        <span class="text-danger fw-bold">{{ 'PROFILE.LOGOUT' | translate }}</span>
+                    </div>
+                </button>
+            </div>
+        </section>
+      </main>
+<router-outlet></router-outlet>
+
+}

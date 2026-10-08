@@ -1,0 +1,61 @@
+
+  <main class="container-md py-5 mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="h5 m-0">{{ 'AVAILABLE_TASKS.TITLE' | translate }}</h2>
+        <span class="badge bg-success-subtle text-success rounded-pill px-3">
+            12 {{ 'AVAILABLE_TASKS.COUNT_SUFFIX' | translate }}
+        </span>
+    </div>
+
+@for (item of ShowOrder(); track $index) {
+      <div  class="d-flex flex-column gap-3">
+        <div [class.viwe]="Deteils()[$index].take " class="card disviwe p-3 my-4 border-0 shadow-sm">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="d-flex gap-3">
+                    <div class="bg-primary-subtle p-2 rounded text-primary">
+                        <span class="material-symbols-outlined">{{item.icon}}</span>
+                    </div>
+                    <div>
+                        <h6 class="mb-1">{{ 'AVAILABLE_TASKS.SERVICE_NAME' | translate }}</h6>
+                        <small class="text-muted d-flex align-items-center">
+                            <span class="material-symbols-outlined fs-6">location_on</span>
+                            {{item.Compound}}
+                        </small>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <div class="fw-bold text-secondary">{{item.serialNumber}}</div>
+                    <small class="text-muted">{{ 'AVAILABLE_TASKS.PRICE_LABEL' | translate }}</small>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button (click)="startFun(item.id)" class="btn btn-primary flex-grow-1">{{ 'AVAILABLE_TASKS.BTN_ACCEPT' | translate }}</button>
+                <button (click)="Check(Deteils()[$index].id)" class="btn btn-outline-primary">{{ 'AVAILABLE_TASKS.BTN_DETAILS' | translate }}</button>
+            </div>
+              <div class="d-flex my-5  ">
+            <!-- ////////Det???????? -->
+                <ul >
+            <li>Name : </li>
+            <li>Phone : </li>
+            <li>Date : {{item.Date}} </li>
+                </ul>
+            <!-- ///// Address0 -->
+          <ul class="ul-end">
+            <li>Billding : {{item.Building}}</li>
+            <li>Unit : {{item.Unit}} </li>
+            <li>Time : {{item.Time}}</li>
+          </ul>
+        </div>
+        </div>
+
+    </div>
+}
+
+
+
+
+
+
+
+</main>
+

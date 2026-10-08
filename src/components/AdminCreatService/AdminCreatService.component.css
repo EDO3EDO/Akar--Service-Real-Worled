@@ -1,0 +1,42 @@
+
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Custom Utilities & Components */
+.fs-xs {
+  font-size: 0.75rem;
+}
+
+.fs-sm {
+  font-size: 0.875rem;
+}
+
+.brand-logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.admin-avatar {
+  width: 36px;
+  height: 36px;
+  font-size: 0.85rem;
+}
+
+.stat-icon-box {
+  width: 48px;
+  height: 48px;
+}
+
+.border-dashed {
+  border-style: dashed !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn, .form-control, .form-select {
+  transition: all 0.2s ease-in-out;
+}

@@ -1,0 +1,93 @@
+<section class="container custom-margin mt-4">
+    @if(!iframeUrl()){
+      <div class="row g-4 align-items-stretch">
+        <!-- Basic Plan -->
+        <div class="col-md-6">
+            <div class="card h-100 border bg-white rounded-4 p-4 shadow-sm transition-card">
+                <div class="mb-4">
+                    <h3 class="h5 fw-bold text-secondary">{{ 'MAINTENANCE_PLANS.PLAN_BASIC_TITLE' | translate }}</h3>
+                    <p class="text-muted small mb-0">{{ 'MAINTENANCE_PLANS.PLAN_BASIC_DESC' | translate }}</p>
+                </div>
+                <div class="mb-4">
+                    <span class="display-4 fw-bold text-primary price-val">{{ 'MAINTENANCE_PLANS.PRICE_BASIC' | translate }}</span>
+                    <span class="text-muted fs-6">{{ 'MAINTENANCE_PLANS.CURRENCY' | translate }}</span>
+                </div>
+                <ul class="list-unstyled flex-grow-1 mb-4">
+                    <li class="d-flex align-items-start gap-2 mb-3">
+                        <span class="material-symbols-outlined text-success">check_circle</span>
+                        <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_1' | translate }}</span>
+                    </li>
+                    <li class="d-flex align-items-start gap-2 mb-3">
+                        <span class="material-symbols-outlined text-success">check_circle</span>
+                        <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_2' | translate }}</span>
+                    </li>
+                    <li class="d-flex align-items-start gap-2 opacity-50">
+                        <span class="material-symbols-outlined text-muted">block</span>
+                        <span class="small text-decoration-line-through">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_3' | translate }}</span>
+                    </li>
+                </ul>
+                <button
+                  (click)="pay('basic', 150)"
+                  [disabled]="loading()"
+                  class="btn btn-outline-primary w-100 py-2 fw-bold small">
+                    {{ loading() && selectedPlan() === 'basic' ? 'جاري التحضير...' : ('MAINTENANCE_PLANS.BTN_SELECT' | translate) }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="col-md-6">
+            <div class="card h-100 border bg-white rounded-4 p-4 shadow-sm transition-card">
+                <div class="mb-4">
+                    <h3 class="h5 fw-bold text-secondary">{{ 'MAINTENANCE_PLANS.PLAN_PREMIUM_TITLE' | translate }}</h3>
+                    <p class="text-muted small mb-0">{{ 'MAINTENANCE_PLANS.PLAN_PREMIUM_DESC' | translate }}</p>
+                </div>
+                <div class="mb-4">
+                    <span class="display-4 fw-bold text-primary price-val">{{ 'MAINTENANCE_PLANS.PRICE_PREMIUM' | translate }}</span>
+                    <span class="text-muted fs-6">{{ 'MAINTENANCE_PLANS.CURRENCY' | translate }}</span>
+                </div>
+                <ul class="list-unstyled flex-grow-1 mb-4">
+                    <li class="d-flex align-items-start gap-2 mb-3">
+                        <span class="material-symbols-outlined text-success">check_circle</span>
+                        <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_1' | translate }}</span>
+                    </li>
+                    <li class="d-flex align-items-start gap-2 mb-3">
+                        <span class="material-symbols-outlined text-success">check_circle</span>
+                        <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_2' | translate }}</span>
+                    </li>
+                    <li class="d-flex align-items-start gap-2 mb-3">
+                        <span class="material-symbols-outlined text-success">check_circle</span>
+                        <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_3' | translate }}</span>
+                    </li>
+                </ul>
+                <button
+                  (click)="pay('premium', 300)"
+                  [disabled]="loading()"
+                  class="btn btn-outline-primary w-100 py-2 fw-bold small">
+                    {{ loading() && selectedPlan() === 'premium' ? 'جاري التحضير...' : ('MAINTENANCE_PLANS.BTN_SELECT' | translate) }}
+                </button>
+            </div>
+        </div>
+    </div>
+    }@else {
+      <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border rounded-4 shadow-sm p-3 bg-light">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="fw-bold mb-0">إتمام عملية الدفع</h5>
+                        <button (click)="iframeUrl.set(null)" class="btn btn-sm btn-close"></button>
+                    </div>
+                    <iframe
+                        [src]="iframeUrl()"
+                        width="100%"
+                        height="500px"
+                        frameborder="0"
+                        class="rounded-3">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</section>

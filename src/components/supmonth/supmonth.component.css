@@ -1,0 +1,54 @@
+
+
+.hero-gradient {
+    background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+}
+
+.hero-bg-overlay {
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: overlay;
+}
+
+.transition-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.custom-margin{
+  margin-bottom: 100px !important;
+}
+
+
+.text-primary {
+    color: #003d9b !important;
+}
+
+.btn-primary {
+    background-color: #003d9b !important;
+    border-color: #003d9b !important;
+}
+
+.btn-primary:hover {
+    background-color: #002e75 !important;
+    border-color: #002e75 !important;
+}
+
+.btn-outline-primary {
+    color: #003d9b !important;
+    border-color: #003d9b !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #003d9b !important;
+    color: #fff !important;
+}
+
+.activate{
+    background-color: #003d9b !important;
+    color: #fff !important;
+}

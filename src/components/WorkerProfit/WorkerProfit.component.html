@@ -1,0 +1,31 @@
+
+<main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="h4">{{ 'EARNINGS.TITLE' | translate }}</h2>
+            <p class="text-muted small">{{ 'EARNINGS.SUBTITLE' | translate }}</p>
+        </div>
+        <button class="btn btn-primary">
+            <span class="material-symbols-outlined align-middle">account_balance_wallet</span>
+            {{ 'EARNINGS.WITHDRAW_BTN' | translate }}
+        </button>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm border-0">
+                {{ 'EARNINGS.DAILY' | translate }}: 450 {{ 'EARNINGS.CURRENCY' | translate }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm border-0">
+                {{ 'EARNINGS.WEEKLY' | translate }}: 2,800 {{ 'EARNINGS.CURRENCY' | translate }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 shadow-sm border-0 bg-primary text-white">
+                {{ 'EARNINGS.MONTHLY' | translate }}: 12,000 {{ 'EARNINGS.CURRENCY' | translate }}
+            </div>
+        </div>
+    </div>
+</main>

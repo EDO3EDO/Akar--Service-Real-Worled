@@ -1,0 +1,187 @@
+@if (IsLodingActive()) {
+
+  <body class=" user-select-none overflow-hidden min-vh-100 d-flex flex-column justify-content-between align-items-center p-4 position-relative">
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <!-- Top Minimalist Status / Brand Tag -->
+  <!-- Central Loading Experience -->
+  <main class="w-100 main-container d-flex flex-column align-items-center justify-content-center my-auto">
+    <!-- Brand Emblem with Animated Halo & Spinner -->
+    <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+      <!-- Ambient Outer Pulse Glow -->
+      <div class="pulse-halo position-absolute rounded-4 bg-primary-subtle"></div>
+      <div class="spinner-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div class="icon-card position-absolute bg-white rounded-4 shadow-sm border d-flex align-items-center justify-content-center animate-icon-float">
+          <div class="icon-bg rounded-3 bg-primary d-flex align-items-center justify-content-center p-2">
+            <span class="material-symbols-outlined text-white fs-2">home_work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smooth Progress Bar Container -->
+    <div class="progress-track bg-light rounded-pill overflow-hidden position-relative mb-3 border">
+      <div class="progress-bar-fill animate-progress rounded-pill"></div>
+    </div>
+  </main>
+</body>
+}@else {
+
+<body class="bg-surface text-on-surface d-flex flex-column min-vh-100">
+  <!-- حاوية reCAPTCHA أمنياً لـ Firebase Phone Auth -->
+  <div id="recaptcha-container"></div>
+
+  <main class="flex-grow-1 pt-5 mt-4 pb-4">
+    <div class="container-max mx-auto px-3">
+      <div class="pt-3 pb-2">
+        <div class="d-flex justify-content-between align-items-center mb-1 text-muted small fw-bold">
+          <span>الخطوة 2 من 2</span>
+          <span class="text-primary">إعداد الحساب</span>
+        </div>
+        <div class="progress progress-xs">
+          <div class="progress-bar bg-primary w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+      <div class="py-2 text-center text-md-start">
+        <h1 class="h4 fw-bold mb-1">إكمال بيانات الحساب</h1>
+        <p class="text-muted small mb-0">يرجى إدخال وتأكيد رقم الهاتف وكلمة المرور لتأمين حسابك.</p>
+      </div>
+
+      <form [formGroup]="completeProfile" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-3 py-3">
+        <!-- الاسم بالكامل -->
+        <div class="d-flex flex-column gap-1">
+          <label class="form-label small fw-semibold mb-0" for="fullName">الاسم بالكامل</label>
+          <input class="form-content-input" id="fullName" formControlName="fullName" type="text" placeholder="محمد أحمد السعيد">
+          @if (completeProfile.get('fullName')?.touched && completeProfile.get('fullName')?.invalid) {
+            <div class="text-danger small">
+              @if (completeProfile.get('fullName')?.hasError('required')) { <span>الاسم بالكامل مطلوب.</span> }
+              @if (completeProfile.get('fullName')?.hasError('minlength')) { <span>الاسم يجب أن لا يقل عن 3 حروف.</span> }
+              @if (completeProfile.get('fullName')?.hasError('pattern')) { <span>الاسم يجب أن يحتوي على حروف فقط.</span> }
+            </div>
+          }
+        </div>
+
+        <!-- رقم الهاتف وزر الإرسال -->
+        <div class="d-flex flex-column gap-1">
+          <label class="form-label small fw-semibold mb-0" for="phone">رقم الهاتف المحمول</label>
+          <div class="d-flex gap-2">
+            <div class="position-relative flex-grow-1 d-flex align-items-center">
+              <input class="form-content-input text-start pe-5" dir="ltr" id="phone" formControlName="phone" type="tel" placeholder="010xxxxxxxx">
+              <span class="position-absolute end-0 pe-3 text-muted small" dir="ltr">+20</span>
+            </div>
+            <button
+              class="btn btn-secondary-custom fw-semibold shrink-0"
+              id="sendOtpBtn"
+              type="button"
+              [disabled]="isLoading || (isOtpSent && !canResend())"
+              (click)="onSendOTP()">
+              {{ isOtpSent ? 'تم الإرسال' : 'إرسال الرمز' }}
+            </button>
+          </div>
+          @if (completeProfile.get('phone')?.touched && completeProfile.get('phone')?.invalid) {
+            <div class="text-danger small">
+              @if (completeProfile.get('phone')?.hasError('required')) { <span>رقم الهاتف مطلوب.</span> }
+              @if (completeProfile.get('phone')?.hasError('pattern')) { <span>أدخل رقم هاتف مصري صحيح (مثال: 01012345678).</span> }
+            </div>
+          }
+        </div>
+
+        <!-- رمز التحقق (OTP) 6 أرقام -->
+
+          <div class="d-flex flex-column gap-1">
+            <div class="d-flex justify-content-between align-items-center">
+              <label class="form-label small fw-semibold mb-0">رمز التحقق (OTP)</label>
+
+              <!-- زر إعادة الإرسال مع العداد التنازلي -->
+              <button
+                class="btn btn-link text-primary p-0 text-decoration-none small fw-semibold"
+                id="resendText"
+                type="button"
+                [disabled]="!canResend()"
+                (click)="onResendOTP()">
+                @if (!canResend()) {
+                  <span>إعادة الإرسال بعد ({{ countdown() }} ثانية)</span>
+                } @else {
+                  <span>إعادة إرسال الرمز الآن</span>
+                }
+              </button>
+            </div>
+
+            <!-- الخانات الـ 6 الخاصة بالكود -->
+            <div class="d-flex justify-content-center gap-2 gap-sm-3 py-2" dir="ltr" formArrayName="otp">
+              @for (control of otpControls; track $index) {
+                <input
+                  class="otp-input form-control text-center fw-bold fs-5"
+                  [formControlName]="$index"
+                  maxlength="1"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="•"
+                  (input)="onOtpInput($event, $index)"
+                  (keydown)="onOtpKeyDown($event, $index)"
+                >
+              }
+            </div>
+
+            @if (completeProfile.get('otp')?.touched && completeProfile.get('otp')?.invalid) {
+              <div class="text-danger text-center small">
+                <span>يرجى إدخال رمز التحقق كاملاً (6 أرقام).</span>
+              </div>
+            }
+          </div>
+
+
+        <!-- كلمة المرور وتأكيدها -->
+        <div class="row g-3">
+          <div class="col-12 col-md-6 d-flex flex-column gap-1">
+            <label class="form-label small fw-semibold mb-0" for="newPassword">كلمة المرور الجديدة</label>
+            <div class="position-relative d-flex align-items-center">
+              <input class="form-content-input ps-5" id="newPassword" formControlName="password" type="password" placeholder="8 أحرف على الأقل">
+            </div>
+            @if (completeProfile.get('password')?.touched && completeProfile.get('password')?.invalid) {
+              <div class="text-danger small">
+                @if (completeProfile.get('password')?.hasError('required')) { <span>كلمة المرور مطلوبة.</span> }
+                @if (completeProfile.get('password')?.hasError('minlength') || completeProfile.get('password')?.hasError('pattern')) {
+                  <span>يجب أن تحتوي على 8 أحرف، حرف كبير، حرف صغير، رقم، ورمز خاص (@$!%*?&).</span>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="col-12 col-md-6 d-flex flex-column gap-1">
+            <label class="form-label small fw-semibold mb-0" for="confirmPassword">تأكيد كلمة المرور</label>
+            <div class="position-relative d-flex align-items-center">
+              <input class="form-content-input ps-5" id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="أعد إدخال كلمة المرور">
+              @if (completeProfile.get('confirmPassword')?.valid && !completeProfile.hasError('mismatch')) {
+                <div class="position-absolute start-0 ms-3 text-success d-flex align-items-center">
+                  <span class="material-symbols-outlined fs-6">check_circle</span>
+                </div>
+              }
+            </div>
+            @if (completeProfile.get('confirmPassword')?.touched && (completeProfile.get('confirmPassword')?.invalid || completeProfile.hasError('mismatch'))) {
+              <div class="text-danger small">
+                @if (completeProfile.get('confirmPassword')?.hasError('required')) { <span>تأكيد كلمة المرور مطلوب.</span> }
+                @if (completeProfile.hasError('mismatch')) { <span>كلمتا المرور غير متطابقتين.</span> }
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- زر الحفظ والإرسال النهائي -->
+        <div class="d-flex flex-column gap-2 pt-2 custom-margin">
+          <button class="btn btn-primary-custom w-100 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2" [disabled]="isloding" type="submit">
+            @if (!isloding) {
+              <span>تأكيد البيانات والمتابعة</span>
+            } @else {
+              <span class="spinner-border spinner-border-sm" role="status"></span>
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+
+}
+
+

@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-3">
+    <!-- Sidebar Navigation -->
+<aside class="sidebar d-none d-lg-flex flex-column  justify-content-between shrink-0">
+  <div class="d-flex flex-column gap-3">
+
+    <!-- Logo & Admin Badge -->
+    <div class="d-flex align-items-center justify-content-between px-2 py-1">
+      <div class="d-flex align-items-center gap-2">
+        <div class="logo-box bg-primary text-on-primary">
+          <span class="material-symbols-outlined">corporate_fare</span>
+        </div>
+        <div class="d-flex flex-column">
+          <span class="fw-bold fs-6 text-on-surface lh-sm">عقار سيرفيس</span>
+          <span class="label-caps text-outline">AKAR PLATFORM</span>
+        </div>
+      </div>
+      <span class="badge bg-primary-fixed text-on-primary-fixed rounded-pill px-2 py-1">الإدارة</span>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="nav flex-column gap-1 pt-2">
+      <p class="px-2 py-1 label-caps text-outline mb-0">القائمة الرئيسية</p>
+
+      <a routerLink="/admin/analysis" routerLinkActive="active" class="nav-link-custom  d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined icon-filled">insights</span>
+          <span>لوحة التحليلات والإحصائيات</span>
+        </div>
+        <span class="dot-indicator"></span>
+      </a>
+
+      <a routerLink="/admin/adminchat" routerLinkActive="active" class="nav-link-custom  d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined icon-filled">support_agent</span>
+          <span>رسايل العملاء</span>
+        </div>
+        <span class="dot-indicator"></span>
+      </a>
+
+      <a routerLink="/admin/adduser" routerLinkActive="active" class="nav-link-custom d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined">badge</span>
+          <span>إدارة المستخدمين والفنيين</span>
+        </div>
+        <span class="badge bg-surface-container-highest text-on-surface-variant font-11">64 فني</span>
+      </a>
+
+      <a routerLink="/admin/catigory" routerLinkActive="active" class="nav-link-custom d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined">local_offer</span>
+          <span>كروت وعروض التطبيق</span>
+        </div>
+        <span class="badge bg-secondary-container text-on-secondary-container font-11">جديد</span>
+      </a>
+
+      <a routerLink="/admin/workerdata" routerLinkActive="active" class="nav-link-custom d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined">database</span>
+          <span>بيانات العمال </span>
+        </div>
+        <span class="badge bg-secondary-container text-on-secondary-container font-11">جديد</span>
+      </a>
+
+      <a routerLink="/admin/service" routerLinkActive="active" class="nav-link-custom d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+          <span class="material-symbols-outlined">database</span>
+          <span>انشاء خدمه</span>
+        </div>
+        <span class="badge bg-secondary-container text-on-secondary-container font-11">جديد</span>
+      </a>
+
+      <hr class="my-2 text-surface-container">
+      <p class="px-2 py-1 label-caps text-outline mb-0">الدعم والإعدادات</p>
+
+      <a href="#" class="nav-link-custom d-flex align-items-center gap-2">
+        <span class="material-symbols-outlined">settings</span>
+        <span>إعدادات النظام</span>
+      </a>
+
+      <a href="#" class="nav-link-custom d-flex align-items-center gap-2">
+        <span class="material-symbols-outlined">help_center</span>
+        <span>مركز المساعدة والدعم</span>
+      </a>
+    </nav>
+  </div>
+
+
+  <div class="profile-card bg-surface-container-low p-2 rounded-3 d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-2 min-w-0">
+      <div class="avatar-circle bg-primary-container text-on-primary fw-bold">أم</div>
+      <div class="d-flex flex-column text-truncate">
+        <span class="fw-semibold text-on-surface fs-7 text-truncate">م/ أحمد محمود</span>
+        <span class="label-caps text-outline font-11 text-truncate">مدير عام النظام</span>
+      </div>
+    </div>
+    <button type="button" class="btn-icon" aria-label="تسجيل الخروج">
+      <span class="material-symbols-outlined">logout</span>
+    </button>
+  </div>
+</aside>
+
+  </div>
+  <div class="col-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+</div>

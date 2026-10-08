@@ -1,0 +1,96 @@
+<main class="flex-grow-1 d-flex flex-column align-items-center justify-content-center py-4 py-md-5 px-2 px-sm-3">
+
+  <div class="container-fluid" style="max-width: 580px;">
+
+    <!-- Card Container -->
+    <section class="card border-0 shadow-lg custom-card">
+      <div class="card-body p-4 p-sm-5">
+
+        <!-- Card Header -->
+        <div class="text-center mb-4">
+          <h1 class="h4 fw-bold text-dark tracking-tight mb-2">إضافة مستخدم جديد للنظام</h1>
+          <p class="text-muted small mb-0">قم بإنشاء حساب جديد للمستخدمين أو مزودي الخدمة وتعيين الصلاحيات والفئات المطلوبة</p>
+        </div>
+
+        <!-- Form Grid -->
+        <form (ngSubmit)="OnCreateUser()">
+          <div class="row g-3">
+
+            <!-- Email -->
+            <div class="col-12 text-start">
+              <label for="new-email" class="form-label fw-semibold text-dark small mb-1">البريد الإلكتروني الجديد</label>
+              <div class="input-group flex-row-reverse">
+                <input type="email" class="form-control text-start rounded-start" dir="ltr" id="new-email" [(ngModel)]="email" name="email" placeholder="name@example.com" required>
+                <span class="input-group-text bg-white text-muted rounded-end border-end">
+                  <span class="material-symbols-outlined fs-5">alternate_email</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="col-12 text-start">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="new-password" class="form-label fw-semibold text-dark small mb-0">كلمة المرور</label>
+                <button type="button" id="generate-pass-btn" class="btn btn-link p-0 text-decoration-none extra-small fw-semibold text-primary">
+                  توليد كلمة سر عشوائية
+                </button>
+              </div>
+              <div class="input-group flex-row-reverse">
+                <button class="btn btn-outline-secondary text-muted d-flex align-items-center px-3 rounded-start" type="button" id="toggle-password-btn" aria-label="إظهار / إخفاء كلمة المرور">
+                  <span class="material-symbols-outlined fs-5" id="eye-icon">visibility</span>
+                </button>
+                <input type="password" class="form-control border-start-0 border-end-0" id="new-password" [(ngModel)]="password" name="password" placeholder="••••••••••••" required>
+                <span class="input-group-text bg-white text-muted rounded-end border-end">
+                  <span class="material-symbols-outlined fs-5">lock</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Role -->
+            <div class="col-12 text-start">
+              <label for="user-role" class="form-label fw-semibold text-dark small mb-1">نوع الحساب (الرول)</label>
+              <select class="form-select" id="user-role" [(ngModel)]="role" name="role" required>
+                <option value="" disabled selected>اختر نوع الحساب / الصلاحية...</option>
+                <option value="client">عميل (Client)</option>
+                <option value="worker">عامل (Worker)</option>
+                <option value="technician">فني / مزود خدمة (Technician)</option>
+                <option value="supervisor">مشرف قسم (Supervisor)</option>
+                <option value="admin">مدير نظام (Administrator)</option>
+              </select>
+            </div>
+
+            <!-- Category -->
+            <div class="col-12 text-start">
+              <label for="category" class="form-label fw-semibold text-dark small mb-1">الفئة المطلوبة (Category)</label>
+              <div class="input-group flex-row-reverse">
+                <select class="form-select fw-medium rounded-start" id="category" [(ngModel)]="job" name="category" required>
+                  <option value="" disabled selected>اختر الفئة المطلوبة...</option>
+                  <option value="Electricity">كهرباء (Electricity)</option>
+                  <option value="Plumbing">سباكة (Plumbing)</option>
+                  <option value="Air Conditioning">تكييف (Air Conditioning)</option>
+                  <option value="Carpentry">نجارة (Carpentry)</option>
+                  <option value="Cleaning">تنظيف (Cleaning)</option>
+                  <option value="Pest Control">مكافحة حشرات (Pest Control)</option>
+                </select>
+                <span class="input-group-text bg-white text-muted rounded-end border-end">
+                  <span class="material-symbols-outlined fs-5">home_repair_service</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-12 mt-5">
+              <button type="submit" id="submit-btn" class="btn bg-primary text-light w-100 py-2-5 fw-bold d-flex align-items-center justify-content-center gap-2 custom-btn">
+                <span class="material-symbols-outlined fs-5">person_add</span>
+                <span>إنشاء الحساب وتحديد الرول</span>
+              </button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </div>
+</main>

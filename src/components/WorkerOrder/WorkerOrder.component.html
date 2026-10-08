@@ -1,0 +1,136 @@
+@for (item of showing(); track $index) {
+  <main class="container vh-100 max-w-xl px-4 mt-4 mb-5 space-y-4">
+        <section class="card border-outline-variant rounded-4 shadow-sm p-4 bg-white">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <span class="badge bg-secondary-container text-on-secondary-container rounded-pill px-3 py-2 text-xxs">{{ 'TASK_DETAILS.STATUS_IN_PROGRESS' | translate }}</span>
+                <span class="fw-bold fs-5 text-primary">{{item.serialNumber}}</span>
+            </div>
+
+            <div class="position-relative d-flex justify-content-between align-items-start stepper-wrapper">
+                <div class="position-absolute top-base start-0 end-0 bg-outline-variant line-base"></div>
+                <div class="position-absolute top-base right-0 bg-primary line-progress transition-all" id="step-line"></div>
+
+
+                <div class="position-relative z-1 d-flex flex-column align-items-center gap-2 cursor-pointer" onclick="updateStep(1)">
+                    <div class="step-circle rounded-circle bg-primary text-white d-flex align-items-center justify-content-center active-ring" id="circle-1">
+                        <span class="material-symbols-outlined fs-sm">check</span>
+                    </div>
+                    <span class="text-xxs text-dark fw-bold">{{ 'TASK_DETAILS.STEP_ACCEPTED' | translate }}</span>
+                </div>
+
+
+                <div class="position-relative z-1 d-flex flex-column align-items-center gap-2 cursor-pointer" onclick="updateStep(2)">
+                    <div  [class.active-ring]="item.status  >= 2 "  [ngClass]="item.status >= 2 ? 'bg-primary text-white' : 'bg-surface-highest text-secondary' "    class="step-circle rounded-circle  border border-2 border-outline-variant  d-flex align-items-center justify-content-center transition-all" id="circle-2">
+                          <span class="material-symbols-outlined fs-sm">location_on</span>
+                    </div>
+                    <span class="text-xxs text-secondary" id="label-2">{{ 'TASK_DETAILS.STEP_ARRIVED' | translate }}</span>
+                </div>
+
+
+                <div class="position-relative z-1 d-flex flex-column align-items-center gap-2 cursor-pointer" onclick="updateStep(3)">
+                    <div  [class.active-ring]="item.status  === 3" [ngClass]="item.status >= 3 ? 'bg-primary text-white' : 'bg-surface-highest text-secondary' "  class="step-circle rounded-circle  border border-2 border-outline-variant text-secondary d-flex align-items-center justify-content-center transition-all" id="circle-3">
+                          <span class="material-symbols-outlined fs-sm">handyman</span>
+                    </div>
+                    <span class="text-xxs text-secondary" id="label-3">{{ 'TASK_DETAILS.STEP_START' | translate }}</span>
+                  </div>
+
+
+                <div class="position-relative z-1 d-flex flex-column align-items-center gap-2 cursor-pointer" onclick="updateStep(4)">
+                    <div [class.active-ring]="item.status  === 4"  [ngClass]="item.status >= 4 ? 'bg-primary text-white' : 'bg-surface-highest text-secondary' " class="step-circle rounded-circle  border border-2 border-outline-variant text-secondary d-flex align-items-center justify-content-center transition-all" id="circle-4">
+                        <span class="material-symbols-outlined fs-sm">verified</span>
+                    </div>
+                    <span class="text-xxs text-secondary" id="label-4">{{ 'TASK_DETAILS.STEP_DONE' | translate }}</span>
+                </div>
+
+
+
+            </div>
+
+
+        </section>
+
+
+        <section class="card border-outline-variant rounded-4 shadow-sm p-3 bg-white d-flex flex-row align-items-center gap-3 mt-3">
+            <div class="customer-avatar-box bg-primary-fixed rounded-3 d-flex align-items-center justify-content-center text-primary">
+                <span class="material-symbols-outlined fs-2">person</span>
+            </div>
+            <div class="flex-grow-1">
+                <p class="text-secondary text-xxs mb-0">{{ 'TASK_DETAILS.CLIENT_LABEL' | translate }}</p>
+                <h2 class="fs-6 fw-bold text-dark mb-0">{{ 'TASK_DETAILS.CLIENT_NAME' | translate }}</h2>
+            </div>
+            <div>
+                <a class="btn btn-success-container rounded-circle d-flex align-items-center justify-content-center call-btn shadow-sm" href="tel:0500000000">
+                    <span class="material-symbols-outlined">call</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="card border-outline-variant rounded-4 shadow-sm overflow-hidden bg-white mt-3">
+            <div class="map-preview-wrapper position-relative bg-surface-variant">
+                <img alt="Map location" class="w-100 h-100 object-fit-cover opacity-75" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80">
+                <div class="position-absolute bottom-0 start-0 end-0 h-50 map-gradient"></div>
+            </div>
+            <div class="p-3 d-flex align-items-start gap-3 position-relative z-1 map-content-offset">
+                <div class="location-icon-box bg-primary-container text-on-primary-container rounded-circle d-flex align-items-center justify-content-center flex-shrink-0">
+                    <span class="material-symbols-outlined">location_on</span>
+                </div>
+                <div>
+                    <h3 class="fs-6 fw-bold text-dark mb-1">حي النرجس، فيلا 24</h3>
+                    <p class="text-secondary small mb-0">{{ 'TASK_DETAILS.LOCATION_CITY' | translate }}</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="card border-outline-variant rounded-4 shadow-sm p-4 bg-white mt-3">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-light-subtle">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">ac_unit</span>
+                    <h3 class="fs-6 fw-bold text-dark mb-0">{{ 'TASK_DETAILS.SERVICE_TITLE' | translate }}</h3>
+                </div>
+                <span class="badge bg-primary-fixed text-primary rounded-pill px-3 py-1 text-xxs font-normal">{{ 'TASK_DETAILS.SERVICE_BADGE' | translate }}</span>
+            </div>
+            <div class="space-y-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="small text-secondary">{{ 'TASK_DETAILS.COST_LABEL' | translate }}</span>
+                    <span class="fs-6 fw-bold text-primary">{{ 'TASK_DETAILS.COST_VALUE' | translate }}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="small text-secondary">{{ 'TASK_DETAILS.TIME_LABEL' | translate }}</span>
+                    <span class="small text-dark">{{ 'TASK_DETAILS.TIME_VALUE' | translate }}</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mt-4 space-y-3">
+
+@if (item.status === 1) {
+    <button (click)="UpdateStatus(item.id , 2)" class="btn bg-primary text-white w-100 py-3 rounded-3 shadow-md fw-bold d-flex align-items-center justify-content-center gap-2 main-action" id="main-action-btn">
+      <span class="material-symbols-outlined" id="action-icon">flight_land</span>
+      <span id="action-text">{{ 'TASK_DETAILS.BTN_ARRIVED' | translate  }}</span>
+    </button>
+}
+@if (item.status === 2) {
+    <button (click)="UpdateStatus(item.id , 3)"  class="btn bg-primary text-white w-100 py-3 rounded-3 shadow-md fw-bold d-flex align-items-center justify-content-center gap-2 main-action" id="main-action-btn">
+      <span class="material-symbols-outlined" id="action-icon">flight_land</span>
+      <span id="action-text">{{ 'TASK_DETAILS.STEP_START' | translate  }}</span>
+    </button>
+}
+@if (item.status === 3) {
+    <button class="btn bg-primary text-white w-100 py-3 rounded-3 shadow-md fw-bold d-flex align-items-center justify-content-center gap-2 main-action" id="main-action-btn">
+      <span class="material-symbols-outlined" id="action-icon">flight_land</span>
+      <span id="action-text">{{ 'TASK_DETAILS.STEP_DONE' | translate  }}</span>
+    </button>
+}
+
+            <button class="btn bg-primary text-white w-100 py-3 rounded-3 shadow-md fw-bold d-flex align-items-center justify-content-center gap-2 main-action" id="main-action-btn">
+                <span class="material-symbols-outlined" id="action-icon">flight_land</span>
+                <span id="action-text">{{ 'TASK_DETAILS.BTN_ARRIVED' | translate }}</span>
+            </button>
+
+        </section>
+
+    </main>
+
+}

@@ -1,0 +1,19 @@
+
+
+.card {
+    border-radius: 1rem !important;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #6c757d;
+}
+
+
+.bg-primary {
+    background-color: #003d9b !important;
+}
+
+.text-primary {
+    color: #003d9b !important;
+}

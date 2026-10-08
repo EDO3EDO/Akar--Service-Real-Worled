@@ -1,0 +1,453 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9ff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    transition: color 0.2s ease;
+}
+
+.login-card {
+    max-width: 440px;
+    width: 100%;
+}
+
+.btn-lang {
+    background-color: #e6eeff;
+    color: #434654;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 50px;
+    padding: 8px 14px;
+    border: none;
+    transition: all 0.15s ease;
+}
+
+.btn-lang:hover {
+    background-color: #dee9fc;
+}
+
+.btn-lang:active, .btn-social:active, .btn-primary-custom:active, .btn-icon-close:active {
+    transform: scale(0.95);
+}
+
+.btn-icon-close {
+    background-color: #e6eeff;
+    color: #434654;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon-close:hover {
+    background-color: #dee9fc;
+}
+
+.brand-logo {
+    width: 80px;
+    height: 80px;
+    background-color: #0052cc;
+    border-radius: 1rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.brand-logo .text-primary {
+    color: #ffffff !important;
+}
+
+.label-caps {
+    font-size: 12px;
+    font-weight: 700;
+    color: #434654;
+}
+
+.input-group-custom {
+    position: relative;
+    width: 100%;
+}
+
+/* Icon Position Logic */
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #737685;
+    z-index: 5;
+    pointer-events: none;
+}
+
+:host-context([dir="rtl"]) .input-icon, [dir="rtl"] .input-icon {
+    right: 14px;
+    left: auto;
+}
+
+:host-context([dir="ltr"]) .input-icon, [dir="ltr"] .input-icon {
+    left: 14px;
+    right: auto;
+}
+
+/* Form Input Control */
+.form-control-custom {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #c3c6d6;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    color: #121c2a;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.04);
+    transition: all 0.2s ease;
+}
+
+:host-context([dir="rtl"]) .form-control-custom, [dir="rtl"] .form-control-custom {
+    padding: 14px 44px 14px 16px;
+}
+
+:host-context([dir="ltr"]) .form-control-custom, [dir="ltr"] .form-control-custom {
+    padding: 14px 16px 14px 44px;
+}
+
+/* Password Input Specific Padding */
+:host-context([dir="rtl"]) .form-control-custom.pass-input, [dir="rtl"] .form-control-custom.pass-input {
+    padding-right: 44px;
+    padding-left: 44px;
+}
+
+:host-context([dir="ltr"]) .form-control-custom.pass-input, [dir="ltr"] .form-control-custom.pass-input {
+    padding-left: 44px;
+    padding-right: 44px;
+}
+
+.form-control-custom:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #003d9b;
+}
+
+/* Eye Toggle Password Button Logic */
+.btn-toggle-pass {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #737685;
+    padding: 0;
+    z-index: 5;
+}
+
+:host-context([dir="rtl"]) .btn-toggle-pass, [dir="rtl"] .btn-toggle-pass {
+    left: 14px;
+    right: auto;
+}
+
+:host-context([dir="ltr"]) .btn-toggle-pass, [dir="ltr"] .btn-toggle-pass {
+    right: 14px;
+    left: auto;
+}
+
+.btn-toggle-pass:hover {
+    color: #434654;
+}
+
+.btn-primary-custom {
+    background-color: #003d9b;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0052cc;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 61, 155, 0.25);
+    color: #ffffff;
+}
+
+.btn-social {
+    background-color: #ffffff;
+    border: 1px solid #c3c6d6;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: #e6eeff;
+}
+
+.decor-circle {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -10;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 61, 155, 0.05);
+    transform: translate(30%, -30%);
+}
+
+/* Default Focus State */
+.form-control-custom:focus,
+.otp-input:focus {
+    border-color: #003d9b;
+    box-shadow: 0 0 0 2px rgba(0, 61, 155, 0.15);
+}
+
+/* //...valid */
+.form-control-custom.ng-touched.ng-valid {
+    border-color: #003d9b;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.25);
+}
+
+.form-control-custom.ng-touched.ng-valid:focus{
+    border-color: #003d9b;
+    box-shadow: 0 0 0 3px rgba(0, 61, 155, 0.3);
+}
+
+
+/* ///.... invalid */
+.form-control-custom.ng-touched.ng-invalid{
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+.form-control-custom.ng-touched.ng-invalid:focus{
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.35);
+}
+
+
+
+
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(0, 110, 44, 0.05);
+    transform: translate(-30%, 30%);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInAnimation 0.6s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ///////////////// lodear => css spin ////////// */
+
+:root {
+  --primary-color: #0052cc;
+  --primary-light: #e8f0fe;
+  --primary-container: #eff4ff;
+  --bg-surface: #f8f9ff;
+}
+
+
+.bg-surface {
+  background-color: #f8f9ff;
+}
+
+.bg-primary {
+  background-color: #0052cc !important;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 340px;
+  transition: max-width 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .main-container { max-width: 480px; }
+}
+
+@media (min-width: 768px) {
+  .main-container { max-width: 580px; }
+}
+
+@media (min-width: 992px) {
+  .main-container { max-width: 680px; }
+}
+
+@media (min-width: 1200px) {
+  .main-container { max-width: 760px; }
+}
+
+@media (min-width: 1400px) {
+  .main-container { max-width: 840px; }
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: rgba(219, 234, 254, 0.6);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-top {
+  top: 15%;
+  right: -100px;
+}
+
+.glow-bottom {
+  bottom: 15%;
+  left: -100px;
+}
+
+@media (min-width: 768px) {
+  .ambient-glow {
+    width: 500px;
+    height: 500px;
+    filter: blur(90px);
+  }
+}
+
+.pulse-halo {
+  width: 144px;
+  height: 144px;
+  filter: blur(20px);
+  animation: pulseGlow 3.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.spinner-wrapper {
+  width: 112px;
+  height: 112px;
+  transition: all 0.3s ease;
+}
+
+.icon-card {
+  inset: 10px;
+  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.12);
+  border-color: #f0f5ff !important;
+}
+
+.icon-bg {
+  width: 52px;
+  height: 52px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .pulse-halo {
+    width: 168px;
+    height: 168px;
+  }
+
+  .spinner-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 240px;
+  height: 6px;
+  border-color: rgba(194, 214, 255, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(to left, #0052cc, #60a5fa);
+}
+
+@media (min-width: 576px) {
+  .progress-track {
+    max-width: 320px;
+    height: 7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .progress-track {
+    max-width: 380px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 992px) {
+  .progress-track {
+    max-width: 420px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progressIndeterminate 1.8s ease-in-out infinite;
+}

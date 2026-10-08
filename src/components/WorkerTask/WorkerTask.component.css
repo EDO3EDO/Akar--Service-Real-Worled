@@ -1,0 +1,43 @@
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #dee2e6;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400;
+}
+
+.btn-primary {
+    background-color: #003d9b;
+    border: none;
+}
+
+
+
+.disviwe {
+  height: 150px;
+  opacity: 1;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out;
+}
+
+.viwe {
+  height: 300px;
+  overflow:hidden;
+    opacity: 1;
+  transition: height 0.4s ease-in-out;
+}
+
+
+li{
+  list-style: none;
+  font-weight: 500;
+  color: #003d9b;
+}
+
+.ul-end{
+  margin-left: 150px;
+}
+

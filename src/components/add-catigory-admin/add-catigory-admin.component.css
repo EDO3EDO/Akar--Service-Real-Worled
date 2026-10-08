@@ -1,0 +1,191 @@
+:root {
+  --bs-font-sans-serif: 'Cairo', sans-serif;
+  --brand-color: #0052cc;
+  --brand-hover: #0047b3;
+  --brand-light: #eef4ff;
+  --brand-subtle: #d9e6ff;
+  --bg-surface: #f8f9ff;
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+  background-color: var(--bg-surface);
+  color: #334155;
+  overflow-x: hidden;
+}
+
+.max-w-1560 {
+  max-width: 1560px;
+}
+
+.fw-black {
+  font-weight: 900;
+}
+.fw-extrabold {
+  font-weight: 800;
+}
+
+.fs-xs {
+  font-size: 0.75rem;
+}
+.fs-sm {
+  font-size: 0.875rem;
+}
+
+.text-brand {
+  color: var(--brand-color) !important;
+}
+.bg-brand {
+  background-color: var(--brand-color) !important;
+}
+.bg-brand-light {
+  background-color: var(--brand-light) !important;
+}
+.border-brand-subtle {
+  border-color: var(--brand-subtle) !important;
+}
+
+.btn-brand {
+  background-color: var(--brand-color);
+  color: #ffffff;
+  border: none;
+}
+.btn-brand:hover {
+  background-color: var(--brand-hover);
+  color: #ffffff;
+}
+.btn-brand-light {
+  background-color: var(--brand-light);
+  color: var(--brand-color);
+  border: 1px solid var(--brand-subtle);
+}
+.btn-brand-light:hover {
+  background-color: var(--brand-subtle);
+  color: var(--brand-hover);
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  transition: all 0.2s ease;
+}
+.btn-icon:hover {
+  background-color: #f1f5f9;
+}
+
+.brand-logo-box {
+  width: 40px;
+  height: 40px;
+}
+.brand-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.shadow-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 40, 100, 0.06);
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+
+.offer-box {
+  width: 40px;
+  height: 40px;
+}
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.upload-dropzone {
+  transition: all 0.2s ease-in-out;
+}
+.upload-dropzone:hover {
+  border-color: var(--brand-color) !important;
+  background-color: var(--brand-light) !important;
+}
+
+.divide-y > * + * {
+  border-top: 1px solid #f1f5f9;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .card {
+    padding: 1rem !important;
+  }
+
+  #offerForm .border-top.d-flex {
+    flex-direction: column-reverse;
+  }
+  #offerForm .border-top.d-flex button,
+  #offerForm .border-top.d-flex a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 576px) {
+  .badge-color-chooser label {
+    flex: 1 1 calc(33.333% - 0.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .h1, h1 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .card-body, .card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .max-w-1560 {
+    max-width: 1560px;
+  }
+}

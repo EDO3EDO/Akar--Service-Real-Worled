@@ -1,0 +1,459 @@
+
+
+.hero-gradient {
+    background: linear-gradient(135deg, #003d9b 0%, #0052cc 100%);
+}
+
+.hero-bg-overlay {
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: overlay;
+}
+
+.transition-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.custom-margin{
+  margin-bottom: 100px !important;
+}
+
+
+.text-primary {
+    color: #003d9b !important;
+}
+
+.btn-primary {
+    background-color: #003d9b !important;
+    border-color: #003d9b !important;
+}
+
+.btn-primary:hover {
+    background-color: #002e75 !important;
+    border-color: #002e75 !important;
+}
+
+.btn-outline-primary {
+    color: #003d9b !important;
+    border-color: #003d9b !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #003d9b !important;
+    color: #fff !important;
+}
+
+.activate{
+    background-color: #003d9b !important;
+    color: #fff !important;
+}
+
+
+
+
+/* ///////.... if status === active */
+
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f8f9ff;
+    color: #121c2a;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom Utilities & Components */
+.bg-surface { background-color: #f8f9ff !important; }
+.bg-surface-lowest { background-color: #ffffff !important; }
+.bg-surface-container-low { background-color: #eff4ff !important; }
+.bg-primary-fixed { background-color: #dae2ff !important; }
+.bg-secondary-container { background-color: #86f898 !important; }
+.bg-secondary-fixed { background-color: #89fa9b !important; }
+
+.text-primary { color: #003d9b !important; }
+.text-secondary { color: #006e2c !important; }
+.text-on-surface { color: #121c2a !important; }
+.text-on-primary-container { color: #c4d2ff !important; }
+.text-on-secondary-container { color: #00722f !important; }
+
+.fs-7 { font-size: 0.75rem; }
+
+/* Custom Header */
+.custom-header {
+    height: 64px;
+}
+
+.bg-surface-blur {
+    background-color: rgba(248, 249, 255, 0.8) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.main-content {
+    padding-top: 80px;
+}
+
+/* Avatar & Icon Box */
+.avatar-circle {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #121c2a;
+    border: none;
+}
+
+.btn-icon:hover {
+    background-color: #dee9fc;
+}
+
+/* Cards & Gradient */
+.card-gradient {
+    background: linear-gradient(135deg, #003d9b, #0052cc, #0c56d0);
+}
+
+.border-outline {
+    border: 1px solid rgba(195, 198, 214, 0.3) !important;
+}
+
+/* Pulse Dot Animation */
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Custom Progress Bar */
+.custom-progress {
+    height: 8px;
+    border-radius: 50px;
+    background-color: #e6eeff;
+    overflow: hidden;
+}
+
+/* Custom Buttons */
+.btn-primary {
+    background-color: #003d9b !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0052cc !important;
+}
+
+.btn-surface-high {
+    background-color: #dee9fc !important;
+    border: none;
+}
+
+.btn-surface-high:hover {
+    background-color: #003d9b !important;
+    color: #ffffff !important;
+}
+
+/* Scrollbar Hide */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .main-content {
+        padding-top: 90px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .card {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .main-content {
+        padding-top: 100px;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* تخصيص إضافي للشاشات الكبيرة إذا لزم الأمر */
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    /* تخصيص إضافي للشاشات العريضة جداً */
+}
+
+
+
+/* ///////..... creat service */
+
+
+/* ==========================================
+   Services Section Styles
+   ========================================== */
+
+/* كارت الخدمة الأساسي */
+.category-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-color: transparent !important;
+}
+
+/* تأثير التمرير (Hover) على الكارت */
+.category-card:hover {
+    background-color: #e6eeff !important;
+    border-color: #c3c6d6 !important;
+    transform: translateY(-2px);
+}
+
+/* حالة اختيار الكارت (Selected Class) */
+.category-card.Gamed {
+    background-color: #e6eeff !important;
+    border-color: #c3c6d6 !important;
+}
+
+/* تأثير الضغط (Active) */
+.category-card:active {
+    transform: scale(0.98);
+}
+
+/* دائرة الأيقونة داخل الكارت */
+.icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background-color: #e6eeff !important;
+    transition: transform 0.2s ease;
+}
+
+/* تكبير الأيقونة عند التمرير على الكارت */
+.category-card:hover .icon-wrapper {
+    transform: scale(1.1);
+}
+
+/* ضبط استجابة الشاشة للشاشات الكبيرة (تنسيق الأوردة من 3 لـ 6 كروت في السطر) */
+@media (min-width: 768px) {
+    .row .col-4 {
+        flex: 0 0 auto;
+        width: 16.66666667%;
+    }
+}
+
+
+
+/* ///////////////// lodear => css spin ////////// */
+
+:root {
+  --primary-color: #0052cc;
+  --primary-light: #e8f0fe;
+  --primary-container: #eff4ff;
+  --bg-surface: #f8f9ff;
+}
+
+
+.bg-surface {
+  background-color: #f8f9ff;
+}
+
+.bg-primary {
+  background-color: #0052cc !important;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 340px;
+  transition: max-width 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .main-container { max-width: 480px; }
+}
+
+@media (min-width: 768px) {
+  .main-container { max-width: 580px; }
+}
+
+@media (min-width: 992px) {
+  .main-container { max-width: 680px; }
+}
+
+@media (min-width: 1200px) {
+  .main-container { max-width: 760px; }
+}
+
+@media (min-width: 1400px) {
+  .main-container { max-width: 840px; }
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: rgba(219, 234, 254, 0.6);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-top {
+  top: 15%;
+  right: -100px;
+}
+
+.glow-bottom {
+  bottom: 15%;
+  left: -100px;
+}
+
+@media (min-width: 768px) {
+  .ambient-glow {
+    width: 500px;
+    height: 500px;
+    filter: blur(90px);
+  }
+}
+
+.pulse-halo {
+  width: 144px;
+  height: 144px;
+  filter: blur(20px);
+  animation: pulseGlow 3.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.spinner-wrapper {
+  width: 112px;
+  height: 112px;
+  transition: all 0.3s ease;
+}
+
+.icon-card {
+  inset: 10px;
+  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.12);
+  border-color: #f0f5ff !important;
+}
+
+.icon-bg {
+  width: 52px;
+  height: 52px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .pulse-halo {
+    width: 168px;
+    height: 168px;
+  }
+
+  .spinner-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 240px;
+  height: 6px;
+  border-color: rgba(194, 214, 255, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(to left, #0052cc, #60a5fa);
+}
+
+@media (min-width: 576px) {
+  .progress-track {
+    max-width: 320px;
+    height: 7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .progress-track {
+    max-width: 380px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 992px) {
+  .progress-track {
+    max-width: 420px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progressIndeterminate 1.8s ease-in-out infinite;
+}

@@ -1,0 +1,101 @@
+<section class="container custom-margin mt-4">
+    @if (!iframeUrl()) {
+        <div class="row g-4 align-items-stretch">
+            <div class="col-md-6">
+                <div class="card h-100 border bg-white rounded-4 p-4 shadow-sm transition-card">
+                    <div class="mb-4">
+                        <h3 class="h5 fw-bold text-secondary">{{ 'MAINTENANCE_PLANS.PLAN_BASIC_TITLE' | translate }}</h3>
+                        <p class="text-muted small mb-0">{{ 'MAINTENANCE_PLANS.PLAN_BASIC_DESC' | translate }}</p>
+                    </div>
+                    <div class="mb-4">
+                        <span class="display-4 fw-bold text-primary price-val">{{ 'MAINTENANCE_PLANS.PRICE_YEARLY_BASIC' | translate }}</span>
+                        <span class="text-muted fs-6">{{ 'MAINTENANCE_PLANS.CURRENCY_YEARLY' | translate }}</span>
+                    </div>
+                    <ul class="list-unstyled flex-grow-1 mb-4">
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_1' | translate }}</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_2' | translate }}</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2 opacity-50">
+                            <span class="material-symbols-outlined text-muted">block</span>
+                            <span class="small text-decoration-line-through">{{ 'MAINTENANCE_PLANS.FEATURE_BASIC_3' | translate }}</span>
+                        </li>
+                    </ul>
+                    <button
+                      class="btn btn-outline-primary w-100 py-2 fw-bold small d-flex align-items-center justify-content-center gap-2"
+                      [disabled]="loading()"
+                      (click)="pay('basic', 500)">
+                        @if (loading() && selectedPlan() === 'basic') {
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        }
+                        <span>{{ 'MAINTENANCE_PLANS.BTN_SELECT' | translate }}</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="col-md-6">
+                <div class="card h-100 border bg-white rounded-4 p-4 shadow-sm transition-card">
+                    <div class="mb-4">
+                        <h3 class="h5 fw-bold text-secondary">{{ 'MAINTENANCE_PLANS.PLAN_PREMIUM_TITLE' | translate }}</h3>
+                        <p class="text-muted small mb-0">{{ 'MAINTENANCE_PLANS.PLAN_PREMIUM_DESC' | translate }}</p>
+                    </div>
+                    <div class="mb-4">
+                        <span class="display-4 fw-bold text-primary price-val">{{ 'MAINTENANCE_PLANS.PRICE_YEARLY_PREMIUM' | translate }}</span>
+                        <span class="text-muted fs-6">{{ 'MAINTENANCE_PLANS.CURRENCY_YEARLY' | translate }}</span>
+                    </div>
+                    <ul class="list-unstyled flex-grow-1 mb-4">
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_1' | translate }}</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_2' | translate }}</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span class="small">{{ 'MAINTENANCE_PLANS.FEATURE_PREMIUM_3' | translate }}</span>
+                        </li>
+                    </ul>
+                    <button
+                      class="btn  btn-outline-primary w-100 py-2 fw-bold small d-flex align-items-center justify-content-center gap-2"
+                      [disabled]="loading()"
+                      (click)="pay('premium', 1200)">
+                        @if (loading() && selectedPlan() === 'premium') {
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        }
+                        <span>{{ 'MAINTENANCE_PLANS.BTN_SELECT' | translate }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    } @else {
+        <!-- عرض الـ Iframe الخاص بـ Paymob بداخل ذات الصفحة ومزود بزر إلغاء/رجوع -->
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-header bg-light d-flex justify-content-between align-items-center p-3 border-bottom">
+                        <h5 class="mb-0 fw-bold text-secondary">إتمام عملية الدفع</h5>
+                        <button class="btn btn-sm btn-outline-danger" (click)="iframeUrl.set(null)">
+                            إلغاء والعودة
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <iframe
+                          [src]="iframeUrl()"
+                          width="100%"
+                          height="750px"
+                          frameborder="0"
+                          style="border: none; display: block;">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>

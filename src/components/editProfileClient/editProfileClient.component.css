@@ -1,0 +1,370 @@
+body {
+  background-color: #f8f9ff;
+  color: #121c2a;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Material Symbols Adjustments */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.icon-fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Header Styles */
+.top-navbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-color: #e3e8f0 !important;
+}
+
+.header-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #003d9b;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #003d9b;
+}
+
+.btn-icon {
+  color: #003d9b;
+  border: none;
+}
+
+.btn-icon:hover {
+  background-color: #e6eeff;
+}
+
+/* Main Container Adjustments */
+.main-content {
+  padding-top: 88px;
+  padding-bottom: 100px;
+  max-width: 500px;
+}
+
+/* Profile Picture Section */
+.profile-avatar-container {
+  position: relative;
+}
+
+.profile-img {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+}
+
+.edit-avatar-btn {
+  background-color: #0052cc;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #ffffff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  padding: 0;
+}
+
+.edit-avatar-btn:hover {
+  background-color: #003d9b;
+  color: #ffffff;
+}
+
+/* Dynamic Positioning for Avatar Edit Button */
+:host-context([dir="rtl"]) .edit-avatar-btn, [dir="rtl"] .edit-avatar-btn {
+  left: 0;
+  right: auto;
+}
+
+:host-context([dir="ltr"]) .edit-avatar-btn, [dir="ltr"] .edit-avatar-btn {
+  right: 0;
+  left: auto;
+}
+
+/* Form Input Custom Container & Icons */
+.input-container-custom {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Dynamic Positioning for Input Icons */
+:host-context([dir="rtl"]) .input-icon, [dir="rtl"] .input-icon {
+  right: 14px;
+  left: auto;
+}
+
+:host-context([dir="ltr"]) .input-icon, [dir="ltr"] .input-icon {
+  left: 14px;
+  right: auto;
+}
+
+/* Form Controls */
+.custom-input {
+  background-color: #ffffff;
+  border: 1px solid #c3c6d6;
+  border-radius: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: #121c2a;
+  width: 100%;
+}
+
+/* Dynamic Padding & Text Alignment */
+:host-context([dir="rtl"]) .custom-input, [dir="rtl"] .custom-input {
+  padding-right: 44px;
+  padding-left: 16px;
+  text-align: right;
+}
+
+:host-context([dir="ltr"]) .custom-input, [dir="ltr"] .custom-input {
+  padding-left: 44px;
+  padding-right: 16px;
+  text-align: left;
+}
+
+.custom-input:focus {
+  border-color: #003d9b;
+  box-shadow: 0 0 0 0.25rem rgba(0, 61, 155, 0.15);
+}
+
+.btn-save {
+  background-color: #0052cc;
+  color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-save:hover {
+  background-color: #003d9b;
+  color: #ffffff;
+}
+
+.btn-save:active {
+  transform: scale(0.98);
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+  height: 70px;
+  background-color: #e6eeff;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.nav-item {
+  color: #434654;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #003d9b;
+}
+
+.nav-item.active {
+  background-color: #0052cc;
+  color: #ffffff !important;
+}
+
+
+
+/* ///////////////// lodear => css spin ////////// */
+
+:root {
+  --primary-color: #0052cc;
+  --primary-light: #e8f0fe;
+  --primary-container: #eff4ff;
+  --bg-surface: #f8f9ff;
+}
+
+
+.bg-surface {
+  background-color: #f8f9ff;
+}
+
+.bg-primary {
+  background-color: #0052cc !important;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 340px;
+  transition: max-width 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .main-container { max-width: 480px; }
+}
+
+@media (min-width: 768px) {
+  .main-container { max-width: 580px; }
+}
+
+@media (min-width: 992px) {
+  .main-container { max-width: 680px; }
+}
+
+@media (min-width: 1200px) {
+  .main-container { max-width: 760px; }
+}
+
+@media (min-width: 1400px) {
+  .main-container { max-width: 840px; }
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: rgba(219, 234, 254, 0.6);
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-top {
+  top: 15%;
+  right: -100px;
+}
+
+.glow-bottom {
+  bottom: 15%;
+  left: -100px;
+}
+
+@media (min-width: 768px) {
+  .ambient-glow {
+    width: 500px;
+    height: 500px;
+    filter: blur(90px);
+  }
+}
+
+.pulse-halo {
+  width: 144px;
+  height: 144px;
+  filter: blur(20px);
+  animation: pulseGlow 3.5s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.spinner-wrapper {
+  width: 112px;
+  height: 112px;
+  transition: all 0.3s ease;
+}
+
+.icon-card {
+  inset: 10px;
+  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.12);
+  border-color: #f0f5ff !important;
+}
+
+.icon-bg {
+  width: 52px;
+  height: 52px;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .pulse-halo {
+    width: 168px;
+    height: 168px;
+  }
+
+  .spinner-wrapper {
+    width: 130px;
+    height: 130px;
+  }
+
+  .icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.progress-track {
+  width: 100%;
+  max-width: 240px;
+  height: 6px;
+  border-color: rgba(194, 214, 255, 0.5) !important;
+  transition: all 0.3s ease;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(to left, #0052cc, #60a5fa);
+}
+
+@media (min-width: 576px) {
+  .progress-track {
+    max-width: 320px;
+    height: 7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .progress-track {
+    max-width: 380px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 992px) {
+  .progress-track {
+    max-width: 420px;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-icon-float {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progressIndeterminate 1.8s ease-in-out infinite;
+}

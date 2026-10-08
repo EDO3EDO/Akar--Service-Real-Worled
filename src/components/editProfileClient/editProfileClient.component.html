@@ -1,0 +1,92 @@
+@if (IsLoding()) {
+
+  <body class=" user-select-none overflow-hidden min-vh-100 d-flex flex-column justify-content-between align-items-center p-4 position-relative">
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <!-- Top Minimalist Status / Brand Tag -->
+  <!-- Central Loading Experience -->
+  <main class="w-100 main-container d-flex flex-column align-items-center justify-content-center my-auto">
+    <!-- Brand Emblem with Animated Halo & Spinner -->
+    <div class="position-relative d-flex align-items-center justify-content-center mb-4">
+      <!-- Ambient Outer Pulse Glow -->
+      <div class="pulse-halo position-absolute rounded-4 bg-primary-subtle"></div>
+      <div class="spinner-wrapper position-relative d-flex align-items-center justify-content-center">
+        <div class="icon-card position-absolute bg-white rounded-4 shadow-sm border d-flex align-items-center justify-content-center animate-icon-float">
+          <div class="icon-bg rounded-3 bg-primary d-flex align-items-center justify-content-center p-2">
+            <span class="material-symbols-outlined text-white fs-2">home_work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Smooth Progress Bar Container -->
+    <div class="progress-track bg-light rounded-pill overflow-hidden position-relative mb-3 border">
+      <div class="progress-bar-fill animate-progress rounded-pill"></div>
+    </div>
+  </main>
+</body>
+}@else {
+
+<!-- Main Content Area -->
+<main class="flex-grow-1 main-content container max-w-lg mx-auto">
+  <div class="d-flex flex-column align-items-center gap-4">
+
+    <!-- Profile Picture Section -->
+    <div class="profile-avatar-container position-relative mt-3">
+      <img [src]="userPhoto()" class="rounded-circle profile-img" [alt]="'PROFILE_EDIT.ALT_AVATAR' | translate">
+      <button type="button" class="btn edit-avatar-btn rounded-circle position-absolute bottom-0 d-flex align-items-center justify-content-center">
+        <span (click)="selectfile.click()" class="material-symbols-outlined fs-6">edit</span>
+        <input (change)="onfileSelect($event); $event.stopPropagation()" accept="image/*" #selectfile class="d-none" type="file">
+      </button>
+    </div>
+
+    <!-- Form Container -->
+    <form id="profileForm" class="w-100 d-flex flex-column gap-3">
+
+      <!-- Full Name Input -->
+      <div>
+        <label for="fullName" class="form-label text-secondary small fw-bold">
+          {{ 'PROFILE_EDIT.FULL_NAME_LABEL' | translate }}
+        </label>
+        <div class="input-container-custom">
+          <span class="material-symbols-outlined input-icon text-muted">person</span>
+          <input type="text" class="form-control custom-input" id="fullName" #editname [value]="userName()" required>
+        </div>
+      </div>
+
+      <!-- Email Input -->
+      <div>
+        <label for="email" class="form-label text-secondary small fw-bold">
+          {{ 'PROFILE_EDIT.EMAIL_LABEL' | translate }}
+        </label>
+        <div class="input-container-custom">
+          <span class="material-symbols-outlined input-icon text-muted">mail</span>
+          <input type="email" class="form-control custom-input" id="email" [value]="userEmail()" disabled>
+        </div>
+      </div>
+
+      <!-- Phone Number Input -->
+      <div>
+        <label for="phone" class="form-label text-secondary small fw-bold">
+          {{ 'PROFILE_EDIT.PHONE_LABEL' | translate }}
+        </label>
+        <div class="input-container-custom">
+          <span class="material-symbols-outlined input-icon text-muted">phone</span>
+          <input type="tel" class="form-control custom-input" id="phone" #editphone [value]="userPhone()" required>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <button (click)="onNameChange(editname.value); onPhoneChange(editphone.value)" type="submit" class="btn btn-save mt-3 py-3 w-100 fw-bold d-flex align-items-center justify-content-center gap-2">
+        <span class="material-symbols-outlined icon-fill">save</span>
+        {{ 'PROFILE_EDIT.SAVE_BUTTON' | translate }}
+      </button>
+
+    </form>
+
+  </div>
+</main>
+
+}
+
+
+
